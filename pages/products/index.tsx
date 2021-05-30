@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Products = () => {
+const Index = () => {
     return (
         <div>
-
+            каталог
         </div>
     );
 };
 
-export default Products
+export default Index

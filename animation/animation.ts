@@ -1,4 +1,4 @@
-export const pageAnimation = {
+export const animation = {
   page: {
     pageInitial: {
       opacity: 0,
@@ -6,7 +6,7 @@ export const pageAnimation = {
     pageAnimate: {
       opacity: 1,
       transition: {
-        delay: 0.1,
+        delay: 0.2,
       },
     },
   },

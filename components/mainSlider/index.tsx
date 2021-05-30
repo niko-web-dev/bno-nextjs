@@ -9,7 +9,7 @@ import InstaIcon from '../icons/instagram'
 import ShareIcon from '../icons/share'
 import Btn from "../btn/Btn"
 
-import {pageAnimation} from "../../animation/animation";
+import {animation} from "../../animation/animation";
 import changeSlideCount from "../../utils/utils"
 
 const MainSlider: FC = () => {
@@ -25,7 +25,7 @@ const MainSlider: FC = () => {
           <motion.div
             // transition={{ ease: [0.17, 0.67, 0.53, 0.37] }}
             animate={slide === 1 ? 'show' : 'hidden'}
-            variants={pageAnimation.displayNoneAnim}
+            variants={animation.displayNoneAnim}
             className={s.slide}
           >
             <div className={s.slide__info}>
@@ -76,7 +76,7 @@ const MainSlider: FC = () => {
           <motion.div
             transition={{ ease: [0.17, 0.67, 0.53, 0.37] }}
             animate={slide === 2 ? 'show' : 'hidden'}
-            variants={pageAnimation.displayNoneAnim}
+            variants={animation.displayNoneAnim}
             className={s.slide}
           >
             <div className={s.slide__info}>
@@ -121,7 +121,7 @@ const MainSlider: FC = () => {
             <motion.div
               transition={{ ease: [0.4, 0.4, 0.4, 0.4] }}
               animate={!slideAnim ? 'show' : 'hidden'}
-              variants={pageAnimation.opasityAnim}
+              variants={animation.opasityAnim}
               onClick={() => setSlide(changeSlideCount(slide, 'next', slideCount))}
               className={s.slide__pagination__prev}
             >
@@ -132,7 +132,7 @@ const MainSlider: FC = () => {
               <motion.div
                 // transition={{ ease: [0.4, 0.4, 0.4, 0.4] }}
                 animate={!slideAnim ? 'norm' : 'scale'}
-                variants={pageAnimation.scaleAnim}
+                variants={animation.scaleAnim}
               >
                 <span> 0 {slide} </span>/
                 <span className={s.slide__count__opacity}> 0 {slideCount} </span>
@@ -142,7 +142,7 @@ const MainSlider: FC = () => {
             <motion.div
               transition={{ ease: [0.17, 0.67, 0.53, 0.37] }}
               animate={!slideAnim ? 'show' : 'hidden'}
-              variants={pageAnimation.opasityAnim}
+              variants={animation.opasityAnim}
               onClick={() => setSlide(changeSlideCount(slide, 'next', slideCount))}
               className={s.slide__pagination__next}
             >

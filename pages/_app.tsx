@@ -2,7 +2,7 @@ import { AppProps } from 'next/app'
 import '../public/styles/globals.css'
 import { AppProvider } from '../context/contextApp'
 import { motion } from 'framer-motion'
-import { pageAnimation } from '../animation/animation'
+import { animation } from '../animation/animation'
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (
@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       key={router.route}
       initial="pageInitial"
       animate="pageAnimate"
-      variants={pageAnimation}
+      variants={animation.page}
     >
       <AppProvider>
         <Component {...pageProps} />

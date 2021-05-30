@@ -45,8 +45,7 @@ const GallerySlider: FC = () => {
             return (
               <Link
                   key={prod.id}
-                  href={`/${prod.article}`}
-                  as={`products/${prod.article}`}
+                  href={`products/${prod.article}`}
               >
                 <a>
                   <div
