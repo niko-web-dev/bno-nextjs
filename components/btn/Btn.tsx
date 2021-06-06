@@ -16,6 +16,7 @@ const Btn: FC<TBtnProps> = ({setSlideAnim, color, title, link}) => {
             }}
             onMouseOut={() => {
                 {setSlideAnim && setSlideAnim(false)}
+                console.log('on')
 
             }}
             onClick={() => router.push(link)}

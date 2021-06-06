@@ -1,20 +1,21 @@
-import { FC, useState } from 'react'
+import {FC, useContext, useState} from 'react'
 import Image from 'next/image'
 
 import s from './mainSlider.module.scss'
+
 import { motion } from 'framer-motion'
-import cn from 'classnames'
 import Icons from '../icons'
 import InstaIcon from '../icons/instagram'
 import ShareIcon from '../icons/share'
 import Btn from "../btn/Btn"
+import Pagination from "../pagination/index"
 
-import {animation} from "../../animation/animation";
-import changeSlideCount from "../../utils/utils"
+import {animation} from "../../animation/animation"
+import {ContextAnimation} from "../../context/contextAnimation"
 
 const MainSlider: FC = () => {
   const [slide, setSlide] = useState(1)
-  const [slideAnim, setSlideAnim] = useState(false)
+  const [slideAnim, setSlideAnim] = useContext(ContextAnimation)
 
   const slideCount = 2; // заменить на arr.length??
 
@@ -23,7 +24,7 @@ const MainSlider: FC = () => {
       <div className="container">
         <div className={s.slider}>
           <motion.div
-            // transition={{ ease: [0.17, 0.67, 0.53, 0.37] }}
+            transition={{ ease: [0.17, 0.67, 0.53, 0.37] }}
             animate={slide === 1 ? 'show' : 'hidden'}
             variants={animation.displayNoneAnim}
             className={s.slide}
@@ -94,7 +95,8 @@ const MainSlider: FC = () => {
                 кропотливая работа с трудоемкими методиками позволяют сохранить традиционное
                 производство японского денима <br />с 1991 года
               </p>
-             {/*<Btn  setSlideAnim={setSlideAnim} title='каталог' color='black'/>*/}
+
+               <Btn setSlideAnim={setSlideAnim} title='каталог' color='black' link={'products'}/>
             </div>
             <div className={s.slide__img}>
               <div className={`${s.slide__man} ${s.slide__man_two}`}>
@@ -112,42 +114,10 @@ const MainSlider: FC = () => {
             </div>
           </motion.div>
 
-          <div
-            className={cn(s.slide__pagination, {
-              [s.slide__pagination__border_one]: slide === 1 && !slideAnim,
-              [s.slide__pagination__border_two]: slide === 2 && !slideAnim,
-            })}
-          >
-            <motion.div
-              transition={{ ease: [0.4, 0.4, 0.4, 0.4] }}
-              animate={!slideAnim ? 'show' : 'hidden'}
-              variants={animation.opasityAnim}
-              onClick={() => setSlide(changeSlideCount(slide, 'next', slideCount))}
-              className={s.slide__pagination__prev}
-            >
-              <Image src="/static/images/slider/slide-arr.png" alt="brand" width={50} height={50} />
-            </motion.div>
+          <div>
 
-            <div className={s.slide__pagination__count}>
-              <motion.div
-                // transition={{ ease: [0.4, 0.4, 0.4, 0.4] }}
-                animate={!slideAnim ? 'norm' : 'scale'}
-                variants={animation.scaleAnim}
-              >
-                <span> 0 {slide} </span>/
-                <span className={s.slide__count__opacity}> 0 {slideCount} </span>
-              </motion.div>
-            </div>
+            <Pagination slide={slide} setSlide={setSlide}/>
 
-            <motion.div
-              transition={{ ease: [0.17, 0.67, 0.53, 0.37] }}
-              animate={!slideAnim ? 'show' : 'hidden'}
-              variants={animation.opasityAnim}
-              onClick={() => setSlide(changeSlideCount(slide, 'next', slideCount))}
-              className={s.slide__pagination__next}
-            >
-              <Image src="/static/images/slider/slide-arr.png" alt="brand" width={50} height={50} />
-            </motion.div>
           </div>
           <div className={s.slide__icons}>
             <Icons dir="row">
@@ -158,7 +128,8 @@ const MainSlider: FC = () => {
         </div>
       </div>
     </div>
-  );
-};
 
-export default MainSlider;
+  )
+}
+
+export default MainSlider

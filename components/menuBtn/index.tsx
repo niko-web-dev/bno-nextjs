@@ -1,11 +1,11 @@
-import { FC, useContext } from 'react';
-import { contextApp } from '../../context/contextApp';
+import{ FC, useContext } from 'react'
+import { contextMenu } from '../../context/contextMenu'
 
 const MenuBtn: FC = () => {
-  const [toggleMenu, setToggleMenu] = useContext(contextApp);
+  const [toggleMenu, setToggleMenu] = useContext(contextMenu)
 
   function handleMenu() {
-    setToggleMenu((prevState) => !prevState);
+    setToggleMenu(!toggleMenu)
   }
 
   return (
@@ -14,11 +14,11 @@ const MenuBtn: FC = () => {
 
       <style jsx>{`
         .menu_img {
-          cursor: pointer;
+          cursor: pointer
         }
       `}</style>
     </>
-  );
-};
+  )
+}
 
-export default MenuBtn;
+export default MenuBtn

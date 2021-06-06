@@ -1,6 +1,6 @@
 import { AppProps } from 'next/app'
 import '../public/styles/globals.css'
-import { AppProvider } from '../context/contextApp'
+import { MenuProvider } from '../context/contextMenu'
 import { motion } from 'framer-motion'
 import { animation } from '../animation/animation'
 
@@ -12,9 +12,9 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       animate="pageAnimate"
       variants={animation.page}
     >
-      <AppProvider>
+      {/*<MenuProvider>*/}
         <Component {...pageProps} />
-      </AppProvider>
+      {/*</MenuProvider>*/}
     </motion.div>
   )
 }

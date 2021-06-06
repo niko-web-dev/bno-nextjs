@@ -1,4 +1,5 @@
 export const animation = {
+
   page: {
     pageInitial: {
       opacity: 0,
@@ -11,7 +12,7 @@ export const animation = {
     },
   },
 
-  opasityAnim: {
+  opacityAnim: {
     show: {
       opacity: 1,
     },
@@ -39,5 +40,12 @@ export const animation = {
       display: 'none',
     },
   },
+
+  animationMenu: {
+    visible: { y: '0' },
+    hidden: { y: '-100%' },
+  },
+
+
 
 }

@@ -1,9 +1,8 @@
-import { FC } from 'react';
-import { TProduct } from '../../types';
-// @ts-ignore
-import s from './gallery.module.scss';
-import Image from 'next/image';
-import Link from 'next/link';
+import { FC } from 'react'
+import s from './gallery.module.scss'
+
+import { TProduct } from '../../types'
+import ProductCard from "../../pages/products/productCard"
 
 const products: TProduct[] = [
   {
@@ -41,43 +40,12 @@ const GallerySlider: FC = () => {
       <div className="container">
         <h2 className={s.gallery__title}>новинки</h2>
         <div className={s.gallery__inner}>
-          {products.map((prod) => {
+          {products.map((prod, index) => {
             return (
-              <Link
-                  key={prod.id}
-                  href={`products/${prod.article}`}
-              >
-                <a>
-                  <div
-                    className={s.gallery__card}
-                    style={{
-                      backgroundImage: 'url(' + `${prod.src}` + ')',
-                    }}
-                  >
-                    <div className={s.gallery__card_brandImg}>
-                      <Image src={prod.scrBrand} alt="brand" width={45} height={45} />
-                    </div>
-                    <h3 className={s.gallery__card_title}>
-                      <span>{prod.article}</span>
-                      {prod.title}
-                    </h3>
-                    <div className={s.gallery__card_price}>
-                      {prod.price}
-                      <span>
-                        <Image
-                          src={'/static/images/gallery/r.png'}
-                          alt="image"
-                          width={7}
-                          height={12}
-                        />
-                      </span>
-                    </div>
-                  </div>
-                </a>
-              </Link>
+                <ProductCard prod={prod} key={index}/>
             );
           })}
-        </div>
+        </div>/
       </div>
       <style jsx>{`
         .gallery__slider {
