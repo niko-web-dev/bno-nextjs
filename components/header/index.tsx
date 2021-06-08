@@ -10,21 +10,18 @@ import CartIcon from '../icons/cartIcon'
 
 import {variantMenu} from "../../types"
 
-const Header: FC<variantMenu> = (variantMenu) => {
+const Header = () => {
 
-  const [variantsMenu] = useState<variantMenu>(variantMenu)
   return (
     <header className={s.header}>
       <div className="container">
         <div className={s.header__menu}>
           <MenuBtn />
           <Logo color="black"/>
-          {variantMenu.variantMenu === "main"
-            && <Icons dir="row">
+           <Icons dir="row">
                   <SearchIcon />
                   <CartIcon />
              </Icons>
-          }
         </div>
       </div>
     </header>

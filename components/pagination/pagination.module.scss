@@ -1,9 +1,24 @@
-.pagination {
+.pagination__wrap__left{
+  position: absolute;
+  top: 32%;
+  left: 0;
+  z-index: 1000;
+}
+.pagination__wrap__right {
   position: absolute;
   top: 32%;
   right: 0;
-  //transform: translateY(-50%);
   z-index: 1000;
+}
+
+.pagination {
+  //position: absolute;
+  //top: 32%;
+  //right: 0;
+  ////transform: translateY(-50%);
+  //z-index: 1000;
+
+
   min-height: 330px;
   display: flex;
   align-items: center;
@@ -15,7 +30,8 @@
     top: 0; //50% для второго сотстояния
     height: 100%;
   }
-  &__count {
+
+    &__count {
     font-size: 24px;
     transform: rotate(90deg);
     font-weight: 700;

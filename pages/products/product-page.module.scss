@@ -1,0 +1,20 @@
+.card {
+  display: flex;
+
+&__wrap {
+  display: flex;
+  width: 100%;
+  background: linear-gradient(to right, white 55%, #F1F1F1 45%);
+}
+  &__content {
+    margin-top: 220px;
+    flex: 1 auto;
+    width: 60%;
+  }
+  &__info {
+    margin-top: 220px;
+    flex: auto 1;
+    width: 45%;
+  }
+}
+

@@ -116,7 +116,7 @@ const MainSlider: FC = () => {
 
           <div>
 
-            <Pagination slide={slide} setSlide={setSlide}/>
+            <Pagination slide={slide} setSlide={setSlide} withCount={true} position="right"/>
 
           </div>
           <div className={s.slide__icons}>

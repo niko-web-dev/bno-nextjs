@@ -12,9 +12,9 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       animate="pageAnimate"
       variants={animation.page}
     >
-      {/*<MenuProvider>*/}
+      <MenuProvider>
         <Component {...pageProps} />
-      {/*</MenuProvider>*/}
+      </MenuProvider>
     </motion.div>
   )
 }

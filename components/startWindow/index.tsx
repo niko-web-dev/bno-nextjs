@@ -9,11 +9,9 @@ import {AnimationProvider} from "../../context/contextAnimation"
 const StartWindow: FC = () => {
     return (
         <AnimationProvider>
-            <MenuProvider>
-              <Menu/>
-              <Header variantMenu="main"/>
-              <MainSlider/>
-            </MenuProvider>
+          <Menu/>
+          <Header variantMenu="main"/>
+          <MainSlider/>
       </AnimationProvider>
     )
 }
