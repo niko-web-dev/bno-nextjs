@@ -6,34 +6,26 @@ import CardSlider from "../../components/cardSlider/cardSlider"
 
 import s from './product-page.module.scss'
 
-const ProductPage = () => {
+const ProductPage = ({data}) => {
     const router = useRouter();
     const handleClick = (e) => {
         e.preventDefault()
         router.back()
     }
-    const images =
-        ['/static/images/gallery/1.png',
-            '/static/images/gallery/2.png']
-
+console.log("product", data)
     return (
         <div>
             <Menu/>
             <Header/>
 
-
                 <div className={s.card__wrap}>
-
-
-
 
                     <div className="container" style={{display: 'flex'}}>
                         <div className={s.card__content}>
 
                             <Index brand={'STONE ISLAND'} types={['Верхняя одежда', 'Куртки']}/>
-                            <CardSlider images={images}/>
+                            {/*<CardSlider images={images}/>*/}
                          </div>
-
 
                     <div className={s.card__info}>
                         dsad
@@ -48,5 +40,15 @@ const ProductPage = () => {
         </div>
     )
 }
+
+export async function getServerSideProps(id) {
+    // Fetch data from external API
+    const res = await fetch(`http://wp.iqwik.ru/wp-json/wp/v2/products/89`)
+    const data = await res.json()
+console.log(data)
+    return { props: { data } }
+}
+
+
 
 export default ProductPage

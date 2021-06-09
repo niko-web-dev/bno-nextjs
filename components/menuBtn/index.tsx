@@ -3,7 +3,7 @@ import { contextMenu } from '../../context/contextMenu'
 
 const MenuBtn: FC = () => {
   const [toggleMenu, setToggleMenu] = useContext(contextMenu)
-console.log(toggleMenu, setToggleMenu)
+
   function handleMenu() {
     setToggleMenu(!toggleMenu)
   }
