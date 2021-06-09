@@ -12,7 +12,7 @@ const ProductPage = ({data}) => {
         e.preventDefault()
         router.back()
     }
-console.log("product", data)
+// console.log("product", data.gallery)
     return (
         <div>
             <Menu/>
@@ -24,7 +24,7 @@ console.log("product", data)
                         <div className={s.card__content}>
 
                             <Index brand={'STONE ISLAND'} types={['Верхняя одежда', 'Куртки']}/>
-                            {/*<CardSlider images={images}/>*/}
+                            <CardSlider images={data.gallery}/>
                          </div>
 
                     <div className={s.card__info}>

@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const Products = ({data}) => {
-    console.log("data", data)
+    // console.log("data", data)
     return (
         <div>
 
@@ -12,11 +12,11 @@ const Products = ({data}) => {
                       <a>
                           hello
                           <h2>{product.title}</h2>
-                          <img src={product.main_image.src}/>
-                        {/*<Image*/}
-                        {/*    src={product.main_image.src} width={500} height={500}*/}
-                        {/*    alt="brand"*/}
-                        {/*/>*/}
+                          {/*<img src={product.main_image.src}/>*/}
+                        <Image
+                            src={product.main_image.src} width={500} height={500}
+                            alt="brand"
+                        />
                     </a>
                 </Link>
                 )
