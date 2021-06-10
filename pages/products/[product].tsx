@@ -8,11 +8,12 @@ import s from './product-page.module.scss'
 
 const ProductPage = ({data}) => {
     const router = useRouter();
+
     const handleClick = (e) => {
         e.preventDefault()
         router.back()
     }
-// console.log("product", data.gallery)
+
     return (
         <div>
             <Menu/>
@@ -28,27 +29,21 @@ const ProductPage = ({data}) => {
                          </div>
 
                     <div className={s.card__info}>
-                        dsad
+                        Инфо
                     </div>
                     </div>
-
-
               </div>
-
-
-
         </div>
     )
 }
 
-export async function getServerSideProps(id) {
-    // Fetch data from external API
-    const res = await fetch(`http://wp.iqwik.ru/wp-json/wp/v2/products/89`)
+export async function getServerSideProps(ctx) {
+
+    const {product} = ctx.query
+    const res = await fetch(`http://wp.iqwik.ru/wp-json/wp/v2/products/${product}`)
     const data = await res.json()
-console.log(data)
+
     return { props: { data } }
 }
-
-
 
 export default ProductPage

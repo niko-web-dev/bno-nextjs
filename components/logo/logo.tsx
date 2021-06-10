@@ -1,9 +1,8 @@
-import { FC } from 'react';
-import Link from 'next/link';
-import {TLogoProps} from "../../types";
+import { FC } from 'react'
+import Link from 'next/link'
+import {TLogoProps} from "../../types"
 
 const Logo: FC<TLogoProps> = ({color}) => {
-    console.log(color)
   return (
     <>
       <Link href="/">
@@ -22,7 +21,7 @@ const Logo: FC<TLogoProps> = ({color}) => {
         }
       `}</style>
     </>
-  );
-};
+  )
+}
 
-export default Logo;
+export default Logo
