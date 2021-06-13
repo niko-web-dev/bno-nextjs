@@ -1,8 +1,4 @@
-import {ReactNode} from "react";
-
-export type TsetSlideAnim = {
-  setSlideAnim: (boolean) => void;
-};
+import {ReactNode} from "react"
 
 export type TBtnProps = {
   setSlideAnim?: (boolean) => void
@@ -10,37 +6,38 @@ export type TBtnProps = {
   color: string
   link: string
 }
-export type TLogoProps = {
-  color: string
-}
 
 export type IPropsIcons = {
-  dir: 'row' | 'column';
-  children: ReactNode;
+  dir: 'row' | 'column' 
+  children: ReactNode 
 }
 
+
+export type TCategories = {
+  name: string
+  slug: string
+}
+export type TGallery = {
+  id: number
+  alt: string
+  src: string
+}
 export type TProduct = {
-  id: number;
-  article: string;
-  title: string;
-  // description: string
-  src: string;
-  scrBrand: string;
-  price: string;
-  size?: string[];
-  favorites: boolean;
-};
-
-export type TDetailsCadrs = {
-  img: string;
-  title: string;
-  text: string;
-};
-
-
-export type variantMenu = {
-  variantMenu: "main" | "card"
+  id: number 
+  slug: string 
+  categories: TCategories
+  brand: TCategories
+  main_image: TGallery
+  code: string
+  price: string
+  color: string
+  gallery: TGallery
+  description: string
+  related_posts: []
+  title: string 
 }
-// export interface IProducts {
-//     product: IProduct
-// }
+
+export type TProducts = {
+  products: TProduct[]
+}
+

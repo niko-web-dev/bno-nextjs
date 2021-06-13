@@ -1,15 +1,17 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import {TProducts} from '../../types'
+import {FC} from "react" 
 
-const Products = ({data}) => {
+const Products:FC<TProducts> = ({products}) => {
+    
     return (
         <div>
-            {data?.map((product, index) => {
+            {products?.map((product, index) => {
                 return (
                     <Link href={`/products/${product.id}`}  key={index}>
                       <a>
-                          <h2>{product.title}</h2>
-                          {/*<img src={product.main_image.src}/>*/}
+                        <h2>{product.title}</h2>
                         <Image
                             src={product.main_image.src} width={500} height={500}
                             alt="brand"
@@ -25,9 +27,9 @@ const Products = ({data}) => {
 // http://wp.iqwik.ru/wp-json/wp/v2/products
 export async function getServerSideProps() {
     const res = await fetch(`http://wp.iqwik.ru/wp-json/wp/v2/products/`)
-    const data = await res.json()
+    const products = await res.json()
 
-    return { props: { data } }
+    return { props: { products } }
 }
 
 export default Products

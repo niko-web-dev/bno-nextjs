@@ -1,8 +1,9 @@
 import s from "./details.module.scss"
-import { TDetailsCadrs } from '../../types'
 import Image from "next/image"
 
-const detailsCadrs: TDetailsCadrs[] = [
+type TDetailsCads = typeof detailsCads
+
+const detailsCads = [
   {
     img: '/static/images/shield.png',
     title: 'гарантия',
@@ -18,20 +19,22 @@ const detailsCadrs: TDetailsCadrs[] = [
     title: 'возврат',
     text: 'Мы оперативно реагируем на вопросы. Никаких шаблонных ответов и чат-ботов.',
   },
-];
+]
 
 const Details = () => {
   return (
       <div className="container">
         <div className={s.details}>
-            {detailsCadrs.map((detailsCadr, index) => {
+            {detailsCads.map((detailsCard, index) => {
               return (
                   <div className={s.details__card} key={index}>
-                    <img className={s.details__card__icon} src={detailsCadr.img} alt={'shield'} />
-                    <h2>{detailsCadr.title}</h2>
-                    <p>{detailsCadr.text}</p>
+                    <div className={s.details__card__icon}>
+                      <Image width={24} height={24}  src={detailsCard.img} alt='shield'/>
+                    </div>
+                    <h2>{detailsCard.title}</h2>
+                    <p>{detailsCard.text}</p>
                   </div>
-              );
+              ) 
             })}
 
         </div>
@@ -44,7 +47,7 @@ const Details = () => {
         </div>
 
     </div>
-  );
-};
+  ) 
+} 
 
-export default Details;
+export default Details 

@@ -1,27 +1,27 @@
-import { FC } from 'react'
+import {FC} from 'react'
 import Link from 'next/link'
-import {TLogoProps} from "../../types"
+import Image from 'next/image'
 
+type TLogoProps = {
+    color: string
+}
 const Logo: FC<TLogoProps> = ({color}) => {
-  return (
-    <>
-      <Link href="/">
-        <a>
-          <img className="header__logo" src={color === "black"
-              ? "/static/images/logo.png"
-              : "/static/images/white-logo.png"}
-               alt="logo" />
-        </a>
-      </Link>
-
-      <style jsx>{`
-        .logo {
-          width: 100px;
-          height: 100px;
-        }
-      `}</style>
+    return (
+        <>
+          <Link href="/">
+            <a>
+              <Image className="header__logo"
+                src={color === "black"
+                ? "/static/images/logo.png"
+                : "/static/images/white-logo.png"}
+                alt="logo"
+                width={100}
+                height={100}
+              />
+            </a>
+          </Link>
     </>
-  )
+    )
 }
 
 export default Logo

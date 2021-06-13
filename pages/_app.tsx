@@ -1,8 +1,9 @@
 import { AppProps } from 'next/app'
-import '../public/styles/globals.css'
-import { MenuProvider } from '../context/contextMenu'
 import { motion } from 'framer-motion'
+import { MenuProvider } from '../context/contextMenu'
+
 import { animation } from '../animation/animation'
+import '../public/styles/globals.css'
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (

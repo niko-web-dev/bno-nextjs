@@ -1,7 +1,5 @@
-import React, { FC, ReactNode } from 'react';
-import {IPropsIcons} from "../../types";
-
-
+import React, { FC, ReactNode } from 'react'
+import {IPropsIcons} from "../../types"
 
 const Icons: FC<IPropsIcons> = ({ dir, children }) => {
   return (
@@ -22,7 +20,7 @@ const Icons: FC<IPropsIcons> = ({ dir, children }) => {
         }
       `}</style>
     </div>
-  );
-};
+  )
+}
 
-export default Icons;
+export default Icons

@@ -6,9 +6,9 @@ import CardSlider from "../../components/cardSlider/cardSlider"
 
 import s from './product-page.module.scss'
 
-const ProductPage = ({data}) => {
-    const router = useRouter();
+const ProductPage = ({product}) => {
 
+    const router = useRouter();
     const handleClick = (e) => {
         e.preventDefault()
         router.back()
@@ -20,12 +20,11 @@ const ProductPage = ({data}) => {
             <Header/>
 
                 <div className={s.card__wrap}>
-
                     <div className="container" style={{display: 'flex'}}>
                         <div className={s.card__content}>
 
                             <Index brand={'STONE ISLAND'} types={['Верхняя одежда', 'Куртки']}/>
-                            <CardSlider images={data.gallery}/>
+                            <CardSlider images={product.gallery}/>
                          </div>
 
                     <div className={s.card__info}>
@@ -39,11 +38,11 @@ const ProductPage = ({data}) => {
 
 export async function getServerSideProps(ctx) {
 
-    const {product} = ctx.query
-    const res = await fetch(`http://wp.iqwik.ru/wp-json/wp/v2/products/${product}`)
-    const data = await res.json()
+    const {id} = ctx.query
+    const res = await fetch(`http://wp.iqwik.ru/wp-json/wp/v2/products/${id}`)
+    const product = await res.json()
 
-    return { props: { data } }
+    return { props: { product } }
 }
 
 export default ProductPage
