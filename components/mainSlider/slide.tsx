@@ -1,11 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 const Slide = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-};
+	return <div></div>
+}
 
-export default Slide;
+export default Slide

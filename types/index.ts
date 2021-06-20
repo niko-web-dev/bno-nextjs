@@ -1,43 +1,50 @@
-import {ReactNode} from "react"
+// @ts-ignore
+import { ReactNode } from 'react'
 
 export type TBtnProps = {
-  setSlideAnim?: (boolean) => void
-  title: string
-  color: string
-  link: string
+	setSlideAnim?: (boolean) => void
+	title: string
+	color: string
+	link: string
 }
 
 export type IPropsIcons = {
-  dir: 'row' | 'column' 
-  children: ReactNode 
+	dir: 'row' | 'column'
+	children: ReactNode
 }
-
 
 export type TCategories = {
-  name: string
-  slug: string
+	id: number
+	name: string
+	slug: string
+	type: string
 }
 export type TGallery = {
-  id: number
-  alt: string
-  src: string
+	alt: string
+	id: number
+	src: string
+}
+export type TBrands = {
+	id: number
+	name: string
+	slug: string
+	type: string
 }
 export type TProduct = {
-  id: number 
-  slug: string 
-  categories: TCategories
-  brand: TCategories
-  main_image: TGallery
-  code: string
-  price: string
-  color: string
-  gallery: TGallery
-  description: string
-  related_posts: []
-  title: string 
+	brands: TBrands[]
+	id: number
+	categories: TCategories[]
+	code: string
+	color: string
+	description: string
+	gallery: TGallery[]
+	main_image: TGallery
+	price: string
+	slug: string
+	related_posts: []
+	title: string
 }
 
 export type TProducts = {
-  products: TProduct[]
+	products: TProduct[]
 }
-

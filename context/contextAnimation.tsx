@@ -1,10 +1,10 @@
 import { createContext, FC, useState } from 'react'
 
-export const ContextAnimation = createContext([]);
+export const ContextAnimation = createContext([])
 
-const { Provider } = ContextAnimation;
+const { Provider } = ContextAnimation
 export const AnimationProvider: FC = ({ children }) => {
-  const [slideAnim, setSlideAnim] = useState(false)
+	const [slideAnim, setSlideAnim] = useState(false)
 
-  return <Provider value={[slideAnim, setSlideAnim]}>{children}</Provider>
+	return <Provider value={[slideAnim, setSlideAnim]}>{children}</Provider>
 }

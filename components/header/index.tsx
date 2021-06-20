@@ -7,21 +7,20 @@ import SearchIcon from '../icons/searchIcon'
 import CartIcon from '../icons/cartIcon'
 
 const Header = () => {
-
-  return (
-    <header className={s.header}>
-      <div className="container">
-        <div className={s.header__menu}>
-          <MenuBtn />
-          <Logo color="black"/>
-           <Icons dir="row">
-                  <SearchIcon />
-                  <CartIcon />
-             </Icons>
-        </div>
-      </div>
-    </header>
-  )
+	return (
+		<header className={s.header}>
+			<div className="container">
+				<div className={s.header__menu}>
+					<MenuBtn />
+					<Logo color="black" />
+					<Icons dir="row">
+						<SearchIcon />
+						<CartIcon />
+					</Icons>
+				</div>
+			</div>
+		</header>
+	)
 }
 
 export default Header

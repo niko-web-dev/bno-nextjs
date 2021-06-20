@@ -1,5 +1,5 @@
 module.exports = {
-    images: {
-        domains: ['wp.iqwik.ru'],
-    }
+	images: {
+		domains: ['wp.iqwik.ru'],
+	},
 }

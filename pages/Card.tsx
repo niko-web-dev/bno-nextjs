@@ -1,7 +1,7 @@
-import { FC } from 'react';
+import { FC } from 'react'
 
 const Card: FC = () => {
-  return <>card</>;
-};
+	return <>card</>
+}
 
-export default Card;
+export default Card
