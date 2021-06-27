@@ -1,27 +1,21 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
-
 class MyDocument extends Document {
-    render() {
-        return (
-            <Html>
-        <Head>
-          <link
-              href="../../public/fonts/Eurostile-Bold.otf"
-          />
-            <link
-              href="../../public/fonts/Eurostile-Regular.otf"
-          />
-        </Head>
-        <body>
+	render() {
+		return (
+			<Html>
+				<Head>
+					<link href="../../public/fonts/Eurostile-Bold.otf" />
+					<link href="../../public/fonts/Eurostile-Regular.otf" />
+				</Head>
+				<body>
+					<Main />
 
-          <Main />
-
-          <NextScript />
-        </body>
-      </Html>
-        )
-    }
+					<NextScript />
+				</body>
+			</Html>
+		)
+	}
 }
 
 export default MyDocument

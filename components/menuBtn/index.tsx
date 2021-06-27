@@ -1,5 +1,6 @@
 import { FC, useContext } from 'react'
 import { contextMenu } from '../../context/contextMenu'
+import Image from 'next/image'
 
 const MenuBtn: FC = () => {
 	const [toggleMenu, setToggleMenu] = useContext(contextMenu)
@@ -10,7 +11,9 @@ const MenuBtn: FC = () => {
 
 	return (
 		<>
-			<img
+			<Image
+				width={50}
+				height={50}
 				className="menu_img"
 				src="/static/images/menu.png"
 				alt="menu"
