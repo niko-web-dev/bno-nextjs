@@ -17,7 +17,7 @@ const CardSlider = ({ images }) => {
 			{images.map((img, index) => {
 				return (
 					<div key={index} className={s.card__slide}>
-						<Image src={img.src} height={600} width={362} />
+						<Image src={img.src} height={600} width={362} alt="image" />
 					</div>
 				)
 			})}

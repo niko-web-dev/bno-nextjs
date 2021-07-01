@@ -4,7 +4,6 @@ import { TProducts } from '../../types'
 import { FC } from 'react'
 import s from './products.module.scss'
 const Products: FC<TProducts> = ({ products }) => {
-
 	return (
 		<div className={s.gallery}>
 			{products?.map((product, index) => {

@@ -5,7 +5,7 @@ import GallerySlider from '../components/gallerySlider'
 import Details from '../components/details'
 import Footer from '../components/footer'
 import { TProducts } from '../types'
-import Menu from "../components/menu";
+import Menu from '../components/menu'
 
 const Home: NextPage<TProducts> = ({ products }) => {
 	return (
@@ -14,7 +14,7 @@ const Home: NextPage<TProducts> = ({ products }) => {
 				<title>B.N.O</title>
 				<link rel="icon" href="/logo.ico" />
 			</Head>
-			<Menu/>
+			<Menu />
 			<StartWindow />
 			<GallerySlider products={products} />
 			<Details />
