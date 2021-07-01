@@ -7,11 +7,23 @@
 	font-family: Eurostile-Bold;
 	src: url('../Eurostile-Bold.otf');
 }
+
+@font-face {
+	font-family: Eurostile;
+	src: url('../Eurostile-Regular.otf');
+}
+
+@font-face {
+	font-family: Eurostile;
+	font-weight: 700;
+	src: url('../Eurostile-Bold.otf');
+}
 html,
 body {
 	padding: 0;
 	margin: 0;
 	font-family: 'Eurostile-Regular', serif;
+	overflow-x: hidden;
 }
 
 h1,
@@ -51,4 +63,14 @@ li {
 
 .hide {
 	display: none;
+}
+
+.card{
+	padding: 215px 0;
+	position: relative;
+	width: 100%;
+	background: linear-gradient(to right, white 55%, #f1f1f1 45%);
+}
+.card__wrapper{
+	display: flex;
 }
