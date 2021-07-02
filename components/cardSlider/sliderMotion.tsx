@@ -3,12 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { wrap } from 'popmotion'
 import { animation } from '../../animation/animation'
 
-
-
 import s from './card-slider.module.scss'
 import { TGallery } from '../../types'
-import Pagination from "../pagination";
-import Image from "next/image";
+import Pagination from '../pagination'
+import Image from 'next/image'
 
 const swipeConfidenceThreshold = 10000
 const swipePower = (offset: number, velocity: number) => {
@@ -41,13 +39,7 @@ export const SliderMotion: FC<TSinglePageGallery> = ({ gallery }) => {
 				)
 			})}
 
-			<Pagination
-				slide={slide}
-				setSlide={setSlide}
-				withCount
-				position='left'
-			/>
-
+			<Pagination slide={slide} setSlide={setSlide} withCount={false} position="left" />
 		</>
 	)
 }

@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import CardLeft from '../components/cardLeft'
 import CardForm from '../components/cardForm'
+import { TProducts } from '../types'
 
-
-const Card: FC<{}> = ({ products }) => {
+const Card: FC<TProducts> = ({ products }) => {
 	return (
 		<>
 			<main className="card">
