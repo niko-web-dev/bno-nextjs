@@ -4,21 +4,22 @@ import CardForm from '../components/cardForm'
 
 
 const Card: FC<{}> = ({}) => {
-	const [status, setStatus] = useState(0);
-	let content;
-	useEffect(()=>{
+	const [status, setStatus] = useState(0)
+	let content
+	useEffect(() => {
 		const data = JSON.parse(localStorage.getItem('product'))
-		if(data.length > 0){
+		if (data.length > 0) {
 			setStatus(1)
 		}
-	},[])
+	}, [])
+
 	function updateStatus(value) {
 		console.log(value)
-		if (value === 1){
+		if (value === 1) {
 			const data = JSON.parse(localStorage.getItem('product'))
-			if(data.length > 0){
+			if (data.length > 0) {
 				setStatus(1)
-			} else  {
+			} else {
 				setStatus(0)
 			}
 		} else {
@@ -26,6 +27,7 @@ const Card: FC<{}> = ({}) => {
 		}
 
 	}
+
 	return (
 		<>
 			<main className="card">
@@ -33,10 +35,10 @@ const Card: FC<{}> = ({}) => {
 					<div className="card__wrapper">
 						{status === 1 ? (
 							<>
-							<CardLeft updateStatus={updateStatus} />
-							<CardForm updateStatus={updateStatus} />
+								<CardLeft updateStatus={updateStatus}/>
+								<CardForm updateStatus={updateStatus}/>
 							</>
-						): status === 2 ?
+						) : status === 2 ?
 							(<div>Спасибо за заказ</div>)
 							: (<p>Корзина пуста</p>)}
 					</div>

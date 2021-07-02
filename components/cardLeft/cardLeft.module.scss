@@ -1,16 +1,17 @@
-.cardProduct{
+.cardProduct {
     display: flex;
     flex-direction: column;
     max-width: 840px;
     width: 100%;
 
-    &__total{
+    &__total {
         display: flex;
         padding: 57px 132px 56px 96px;
         width: 100%;
         align-items: center;
         justify-content: space-between;
-        p{
+
+        p {
             margin: 0;
             padding: 0;
             font-family: Eurostile;
@@ -20,7 +21,8 @@
             line-height: 22px;
             letter-spacing: 0.15em;
         }
-        h3{
+
+        h3 {
             margin: 0;
             padding: 0;
             font-family: Eurostile;
@@ -31,20 +33,22 @@
         }
     }
 
-    &__item{
+    &__item {
         padding: 25px 50px 15px 15px;
         width: 100%;
         display: flex;
         border-bottom: 1px solid #F1F1F1;
     }
-    &__image{
+
+    &__image {
         object-fit: cover !important;
         max-width: 245px !important;
         max-height: 300px !important;
         width: 100% !important;
         height: auto !important;
     }
-    &__info{
+
+    &__info {
         display: flex;
         flex-direction: column;
         margin-left: 65px;
@@ -52,7 +56,8 @@
         width: 100%;
         position: relative;
     }
-    &__title{
+
+    &__title {
         font-family: Eurostile;
         font-style: normal;
         font-weight: 700;
@@ -61,18 +66,21 @@
         letter-spacing: 0.15em;
         margin-bottom: 14px;
     }
-    &__article{
+
+    &__article {
         font-family: Eurostile;
         font-weight: 700;
         font-size: 14px;
         line-height: 17px;
         letter-spacing: 0.15em;
         margin-bottom: 15px;
-        span{
+
+        span {
             font-weight: normal;
         }
     }
-    &__size{
+
+    &__size {
         font-family: Eurostile;
         font-style: normal;
         font-weight: normal;
@@ -81,7 +89,8 @@
         letter-spacing: 0.15em;
         margin-bottom: 80px;
     }
-    &__price{
+
+    &__price {
         width: 100%;
         text-align: end;
         font-family: Eurostile;
@@ -90,7 +99,8 @@
         line-height: 22px;
         letter-spacing: 0.15em;
     }
-    &__delete{
+
+    &__delete {
         width: 22px;
         height: 22px;
         position: absolute;
