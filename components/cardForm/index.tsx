@@ -1,22 +1,64 @@
 import { FC, Fragment, useState } from 'react'
 import style from './cardForm.module.scss'
 
-const CardForm: FC<{}> = ({ }) => {
+const CardForm: FC<{}> = ({updateStatus}) => {
 
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [contact, setContact] = useState('telegram');
 
-  const submitForm = (e) => {
+  const submitForm = async (e) => {
     e.preventDefault();
+    let orderProducts = JSON.parse(localStorage.getItem('product'));
+    let cardProducts = {};
+    for (let item in orderProducts){
+      item = orderProducts[item]
+      cardProducts[item.id] = {
+        'price': item.price,
+        'size': 'L',
+        'qty': 1
+      }
+    }
     let data = {
       'name': name,
       'phone': phone,
       'email': email,
-      'contact': contact
+      'order': JSON.stringify({
+        'products': {cardProducts},
+        'discount': null,
+        'total_cost': 0
+      }),
+      'payment_method': contact,
+      'contact_method': contact
     }
-    console.log(data)
+
+    let response = await fetch('http://wp.iqwik.ru/wp-json/wp/v2/orders', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: new URLSearchParams(data)
+    });
+
+    let result = await response.json();
+
+    subscriberUser(data.email)
+  }
+  const subscriberUser = async (userMail) => {
+    let data = {
+      email: userMail
+    }
+    let response = await fetch('http://wp.iqwik.ru/wp-json/wp/v2/subscribe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: new URLSearchParams(data)
+    });
+
+    let result = await response.json();
+    updateStatus(2)
   }
   const changeName = function(event){
     setName(event.target.value)

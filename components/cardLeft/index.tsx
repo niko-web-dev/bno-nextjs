@@ -1,23 +1,41 @@
-import { FC, Fragment } from 'react'
+import { FC, Fragment, useEffect, useState } from 'react'
 import CardItem from './components/cardItem'
 import style from './cardLeft.module.scss'
 
-const CardLeft: FC<{}> = ({ products }) => {
+const CardLeft: FC<{}> = ({updateStatus}) => {
+  const [products, setProducts] = useState(0);
+  useEffect(()=>{
+    const data = localStorage.getItem('product')
+    if(data){
+      setProducts(JSON.parse(data))
+    }
+  },[])
+  function deleteItem(value) {
+    products.splice(value, 1)
+    localStorage.setItem('product', JSON.stringify(products));
+    let newProducts = JSON.parse(localStorage.getItem('product'))
+    setProducts(newProducts)
+    updateStatus(1)
+  }
+
     return (
         <section className={style.cardProduct} >
-            {products.map((product) => {
-                return (
-                    <Fragment key={product.id}>
-                        <CardItem {...product} />
-                    </Fragment>
-                )
-            })}
-            <div className={style.cardProduct__total}>
-                <p>Сумма заказа</p>
-                <h3><b>{
-                  products.reduce((sum, n) => sum + +n.price, 0).toLocaleString()
-                }</b> ₽</h3>
-            </div>
+          <div  className={style.cardProduct}>
+          {products != 0 ? products.map((product, index) => {
+            product['index'] = index;
+            return (
+              <Fragment key={product.id}>
+                <CardItem {...product} deleteItem={deleteItem}/>
+              </Fragment>
+            )
+          }) : <p>tovarov net</p> }
+          </div>
+          <div className={style.cardProduct__total}>
+            <p>Сумма заказа</p>
+            <h3><b>{
+              products != 0 ? products.reduce((sum, n) => sum + +n.price, 0).toLocaleString() : null
+            }</b> ₽</h3>
+          </div>
         </section>
     )
 
