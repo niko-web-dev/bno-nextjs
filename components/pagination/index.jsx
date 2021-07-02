@@ -9,9 +9,14 @@ import { animation } from '../../animation/animation'
 import changeSlideCount from '../../utils/utils'
 import { ContextAnimation } from '../../context/contextAnimation'
 
-const Pagination = ({ slide, setSlide, withCount, position, slideCount = 2 }) => {
+const Pagination = ({
+	slide,
+	setSlide,
+	withCount,
+	position,
+	slideCount = 2,
+}) => {
 	const [slideAnim] = useContext(ContextAnimation)
-
 
 	return (
 		<div
