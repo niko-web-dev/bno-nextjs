@@ -8,7 +8,7 @@ const Card: FC<{}> = ({}) => {
 	let content
 	useEffect(() => {
 		const data = JSON.parse(localStorage.getItem('product'))
-		if (data.length > 0) {
+		if (data != null && data.length > 0) {
 			setStatus(1)
 		}
 	}, [])

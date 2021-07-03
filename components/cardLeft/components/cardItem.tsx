@@ -8,7 +8,7 @@ const CardItem: FC<{}> = (props) => {
 		<div className={style.cardProduct__item}>
 			<Image
 				className={style.cardProduct__image}
-				src={product.main_image.src}
+				src={product.image}
 				width={245}
 				height={300}
 				alt="brand"

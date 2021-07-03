@@ -14,5 +14,162 @@
 		margin-top: 220px;
 		flex: auto 1;
 		width: 45%;
+		flex-direction: column;
+	}
+	&__title{
+		max-width: 395px;
+		width: 100%;
+		font-family: Eurostile;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 24px;
+		line-height: 29px;
+		letter-spacing: 0.15em;
+		margin-bottom: 30px;
+	}
+	&__description{
+		max-width: 480px;
+		width: 100%;
+		font-family: Eurostile;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 14px;
+		line-height: 21px;
+		letter-spacing: 0.15em;
+		margin-bottom: 50px;
+	}
+	&__popupslink{
+		position: relative;
+		margin-bottom: 60px;
+		display: flex;
+		flex-direction: column;
+		button {
+			display: inline-block;
+			cursor: pointer;
+			width: fit-content;
+			background: none;
+			border: none;
+			padding: 0;
+			margin: 0;
+			font-family: Eurostile;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 14px;
+			line-height: 17px;
+			letter-spacing: 0.15em;
+			color: #979797;
+			border-bottom: 1px solid #979797;
+			&:not(:last-child){
+				margin-bottom: 12px;
+			}
+		}
+	}
+
+	&__colorTitle{
+		font-family: Eurostile;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 14px;
+		line-height: 17px;
+		letter-spacing: 0.15em;
+		margin-bottom: 18px;
+	}
+	&__colors{
+		display: flex;
+		align-items: center;
+		margin-bottom: 41px;
+		&Link{
+			width: 45px;
+			height: 5px;
+			position: relative;
+			&Active{
+				pointer-events: none;
+				&:after{
+					content: '';
+					position: absolute;
+					left: 0;
+					right: 0;
+					bottom: -9px;
+					width: 100%;
+					height: 1px;
+					background: #000;
+				}
+			}
+		}
+	}
+	&__sizesTitle{
+		font-family: Eurostile;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 14px;
+		line-height: 17px;
+		letter-spacing: 0.15em;
+		margin-bottom: 25px;
+	}
+	&__sizes{
+		display: flex;
+		margin-bottom: 80px;
+		&Label{
+			font-family: Eurostile;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 18px;
+			line-height: 22px;
+			text-align: center;
+			letter-spacing: 0.15em;
+			width: fit-content;
+			padding: 0 10px;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 30px;
+			&:not(:last-child){
+				margin-right: 30px;
+			}
+			&Active{
+				font-weight: bold;
+				font-size: 24px;
+				line-height: 29px;
+				border-bottom: 1px solid black;
+			}
+		}
+		&Radio{
+			margin: 0;
+			padding: 0;
+			width: 0;
+			height: 0;
+		}
+	}
+	&__price{
+		max-width: 400px;
+		width: 100%;
+		text-align: center;
+		font-weight: normal;
+		font-size: 36px;
+		line-height: 43px;
+		letter-spacing: 0.15em;
+		margin-bottom: 4px;
+	}
+	&__button{
+		background-color: transparent;
+		cursor: pointer;
+		padding: 15px;
+		max-width: 400px;
+		width: 100%;
+		text-align: center;
+		color: #000000;
+		font-family: Eurostile;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 12px;
+		line-height: 14px;
+		letter-spacing: 0.15em;
+		border: 1px solid #000000;
+		transition: all .5s ease;
+		&:hover {
+			background-color: #000;
+			color: #ffffff;
+		}
 	}
 }

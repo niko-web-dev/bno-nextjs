@@ -10,13 +10,16 @@ const CardForm: FC<{}> = ({ updateStatus }) => {
 
 	const submitForm = async (e) => {
 		e.preventDefault()
+		if (name != '' && phone != '' && email != ''){
 		let orderProducts = JSON.parse(localStorage.getItem('product'))
 		let cardProducts = {}
+		let totalCost = 0;
 		for (let item in orderProducts) {
 			item = orderProducts[item]
+			totalCost += +item.price;
 			cardProducts[item.id] = {
 				'price': item.price,
-				'size': 'L',
+				'size': item.size,
 				'qty': 1
 			}
 		}
@@ -27,7 +30,7 @@ const CardForm: FC<{}> = ({ updateStatus }) => {
 			'order': JSON.stringify({
 				'products': { cardProducts },
 				'discount': null,
-				'total_cost': 0
+				'total_cost': totalCost
 			}),
 			'payment_method': contact,
 			'contact_method': contact
@@ -44,6 +47,10 @@ const CardForm: FC<{}> = ({ updateStatus }) => {
 		let result = await response.json()
 
 		subscriberUser(data.email)
+			localStorage.removeItem('product')
+		} else {
+			alert('заполните контакты')
+		}
 	}
 	const subscriberUser = async (userMail) => {
 		let data = {
@@ -85,6 +92,7 @@ const CardForm: FC<{}> = ({ updateStatus }) => {
 							 id='name'
 							 onChange={changeName}
 							 value={name}
+							 required={true}
 							 type="text"/>
 			</div>
 			<div className={style.cardForm__inputBlock}>
@@ -92,6 +100,7 @@ const CardForm: FC<{}> = ({ updateStatus }) => {
 				<input className={style.cardForm__input}
 							 onChange={changePhone}
 							 value={phone}
+							 required={true}
 							 id='tel'
 							 type="tel"/>
 			</div>
@@ -100,6 +109,7 @@ const CardForm: FC<{}> = ({ updateStatus }) => {
 				<input className={style.cardForm__input}
 							 onChange={changeEmail}
 							 value={email}
+							 required={true}
 							 id='email'
 							 type="email"/>
 			</div>

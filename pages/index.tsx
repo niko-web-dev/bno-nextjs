@@ -8,9 +8,6 @@ import { TProducts } from '../types'
 import Menu from '../components/menu'
 
 const Home: NextPage<TProducts> = ({ products }) => {
-	if (process.browser) {
-		localStorage.setItem('product', JSON.stringify(products));
-	}
 	return (
 		<>
 			<Head>
