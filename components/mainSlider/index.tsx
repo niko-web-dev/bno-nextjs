@@ -62,6 +62,7 @@ const MainSlider: FC = () => {
 									src="/static/images/slider/one/man.png"
 									width={302}
 									height={762}
+									alt="brand"
 								/>
 							</div>
 							<div
@@ -133,6 +134,7 @@ const MainSlider: FC = () => {
 									src="/static/images/slider/two/man.png"
 									width={494}
 									height={770}
+									alt="brand"
 								/>
 							</div>
 							<div
@@ -150,6 +152,7 @@ const MainSlider: FC = () => {
 									src="/static/images/slider/two/mash.png"
 									width={904}
 									height={875}
+									alt="mash"
 								/>
 							</div>
 						</div>

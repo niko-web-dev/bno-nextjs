@@ -4,10 +4,9 @@ import CardForm from '../components/cardForm'
 import CardNull from '../components/cardNull'
 import CardConfirm from '../components/cardConfirm'
 
-
-const Card: FC<{}> = ({}) => {
+const Card: FC = () => {
 	const [status, setStatus] = useState(0)
-	let content
+
 	useEffect(() => {
 		const data = JSON.parse(localStorage.getItem('product'))
 		if (data != null && data.length > 0) {
@@ -15,8 +14,7 @@ const Card: FC<{}> = ({}) => {
 		}
 	}, [])
 
-	function updateStatus(value) {
-		console.log(value)
+	function updateStatus(value: number) {
 		if (value === 1) {
 			const data = JSON.parse(localStorage.getItem('product'))
 			if (data.length > 0) {
@@ -27,22 +25,28 @@ const Card: FC<{}> = ({}) => {
 		} else {
 			setStatus(2)
 		}
-
 	}
 
 	return (
 		<>
 			<main className={['card', status != 1 ? 'card-state-2' : null].join(' ')}>
 				<div className="container">
-					<div className={['card__wrapper', status != 1 ? 'card-center' : null].join(' ')}>
+					<div
+						className={[
+							'card__wrapper',
+							status != 1 ? 'card-center' : null,
+						].join(' ')}
+					>
 						{status === 1 ? (
 							<>
-								<CardLeft updateStatus={updateStatus}/>
-								<CardForm updateStatus={updateStatus}/>
+								<CardLeft updateStatus={updateStatus} />
+								<CardForm updateStatus={updateStatus} />
 							</>
-						) : status === 2 ?
-							(<CardConfirm />)
-							: (<CardNull />)}
+						) : status === 2 ? (
+							<CardConfirm />
+						) : (
+							<CardNull />
+						)}
 					</div>
 				</div>
 			</main>

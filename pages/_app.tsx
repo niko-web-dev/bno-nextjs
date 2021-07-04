@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 			variants={animation.page}
 		>
 			<MenuProvider>
- 				<Header />
+				<Header />
 				<Component {...pageProps} />
 			</MenuProvider>
 		</motion.div>

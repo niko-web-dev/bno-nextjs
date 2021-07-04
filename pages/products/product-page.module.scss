@@ -16,7 +16,7 @@
 		width: 45%;
 		flex-direction: column;
 	}
-	&__title{
+	&__title {
 		max-width: 395px;
 		width: 100%;
 		font-family: Eurostile;
@@ -27,7 +27,7 @@
 		letter-spacing: 0.15em;
 		margin-bottom: 30px;
 	}
-	&__description{
+	&__description {
 		max-width: 480px;
 		width: 100%;
 		font-family: Eurostile;
@@ -38,7 +38,7 @@
 		letter-spacing: 0.15em;
 		margin-bottom: 50px;
 	}
-	&__popupslink{
+	&__popupslink {
 		position: relative;
 		margin-bottom: 60px;
 		display: flex;
@@ -59,13 +59,13 @@
 			letter-spacing: 0.15em;
 			color: #979797;
 			border-bottom: 1px solid #979797;
-			&:not(:last-child){
+			&:not(:last-child) {
 				margin-bottom: 12px;
 			}
 		}
 	}
 
-	&__colorTitle{
+	&__colorTitle {
 		font-family: Eurostile;
 		font-style: normal;
 		font-weight: bold;
@@ -74,17 +74,17 @@
 		letter-spacing: 0.15em;
 		margin-bottom: 18px;
 	}
-	&__colors{
+	&__colors {
 		display: flex;
 		align-items: center;
 		margin-bottom: 41px;
-		&Link{
+		&Link {
 			width: 45px;
 			height: 5px;
 			position: relative;
-			&Active{
+			&Active {
 				pointer-events: none;
-				&:after{
+				&:after {
 					content: '';
 					position: absolute;
 					left: 0;
@@ -97,7 +97,7 @@
 			}
 		}
 	}
-	&__sizesTitle{
+	&__sizesTitle {
 		font-family: Eurostile;
 		font-style: normal;
 		font-weight: bold;
@@ -106,10 +106,10 @@
 		letter-spacing: 0.15em;
 		margin-bottom: 25px;
 	}
-	&__sizes{
+	&__sizes {
 		display: flex;
 		margin-bottom: 80px;
-		&Label{
+		&Label {
 			font-family: Eurostile;
 			font-style: normal;
 			font-weight: normal;
@@ -124,24 +124,24 @@
 			align-items: center;
 			justify-content: center;
 			height: 30px;
-			&:not(:last-child){
+			&:not(:last-child) {
 				margin-right: 30px;
 			}
-			&Active{
+			&Active {
 				font-weight: bold;
 				font-size: 24px;
 				line-height: 29px;
 				border-bottom: 1px solid black;
 			}
 		}
-		&Radio{
+		&Radio {
 			margin: 0;
 			padding: 0;
 			width: 0;
 			height: 0;
 		}
 	}
-	&__price{
+	&__price {
 		max-width: 400px;
 		width: 100%;
 		text-align: center;
@@ -151,7 +151,7 @@
 		letter-spacing: 0.15em;
 		margin-bottom: 4px;
 	}
-	&__button{
+	&__button {
 		background-color: transparent;
 		cursor: pointer;
 		padding: 15px;
@@ -166,7 +166,7 @@
 		line-height: 14px;
 		letter-spacing: 0.15em;
 		border: 1px solid #000000;
-		transition: all .5s ease;
+		transition: all 0.5s ease;
 		&:hover {
 			background-color: #000;
 			color: #ffffff;

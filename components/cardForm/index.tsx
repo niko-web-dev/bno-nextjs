@@ -1,8 +1,7 @@
 import { FC, Fragment, useState } from 'react'
 import style from './cardForm.module.scss'
 
-const CardForm: FC<{}> = ({ updateStatus }) => {
-
+const CardForm: FC = ({ updateStatus }) => {
 	const [name, setName] = useState('')
 	const [phone, setPhone] = useState('')
 	const [email, setEmail] = useState('')
@@ -10,43 +9,43 @@ const CardForm: FC<{}> = ({ updateStatus }) => {
 
 	const submitForm = async (e) => {
 		e.preventDefault()
-		if (name != '' && phone != '' && email != ''){
-		let orderProducts = JSON.parse(localStorage.getItem('product'))
-		let cardProducts = {}
-		let totalCost = 0;
-		for (let item in orderProducts) {
-			item = orderProducts[item]
-			totalCost += +item.price;
-			cardProducts[item.id] = {
-				'price': item.price,
-				'size': item.size,
-				'qty': 1
+		if (name != '' && phone != '' && email != '') {
+			let orderProducts = JSON.parse(localStorage.getItem('product'))
+			let cardProducts = {}
+			let totalCost = 0
+			for (let item in orderProducts) {
+				item = orderProducts[item]
+				totalCost += +item.price
+				cardProducts[item.id] = {
+					price: item.price,
+					size: item.size,
+					qty: 1,
+				}
 			}
-		}
-		let data = {
-			'name': name,
-			'phone': phone,
-			'email': email,
-			'order': JSON.stringify({
-				'products': { cardProducts },
-				'discount': null,
-				'total_cost': totalCost
-			}),
-			'payment_method': contact,
-			'contact_method': contact
-		}
+			let data = {
+				name: name,
+				phone: phone,
+				email: email,
+				order: JSON.stringify({
+					products: { cardProducts },
+					discount: null,
+					total_cost: totalCost,
+				}),
+				payment_method: contact,
+				contact_method: contact,
+			}
 
-		let response = await fetch('http://wp.iqwik.ru/wp-json/wp/v2/orders', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
-			},
-			body: new URLSearchParams(data)
-		})
+			let response = await fetch('http://wp.iqwik.ru/wp-json/wp/v2/orders', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded',
+				},
+				body: new URLSearchParams(data),
+			})
 
-		let result = await response.json()
+			let result = await response.json()
 
-		subscriberUser(data.email)
+			subscriberUser(data.email)
 			localStorage.removeItem('product')
 		} else {
 			alert('заполните контакты')
@@ -54,26 +53,26 @@ const CardForm: FC<{}> = ({ updateStatus }) => {
 	}
 	const subscriberUser = async (userMail) => {
 		let data = {
-			email: userMail
+			email: userMail,
 		}
 		let response = await fetch('http://wp.iqwik.ru/wp-json/wp/v2/subscribe', {
 			method: 'POST',
 			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
+				'Content-Type': 'application/x-www-form-urlencoded',
 			},
-			body: new URLSearchParams(data)
+			body: new URLSearchParams(data),
 		})
 
 		let result = await response.json()
 		updateStatus(2)
 	}
-	const changeName = function(event) {
+	const changeName = function (event) {
 		setName(event.target.value)
 	}
-	const changePhone = function(event) {
+	const changePhone = function (event) {
 		setPhone(event.target.value)
 	}
-	const changeEmail = function(event) {
+	const changeEmail = function (event) {
 		setEmail(event.target.value)
 	}
 	const handleContact = (event) => {
@@ -82,72 +81,110 @@ const CardForm: FC<{}> = ({ updateStatus }) => {
 	}
 	return (
 		<form className={style.cardForm}>
-			<h2 className={style.cardForm__title}>
-				ВАШИ ДАННЫЕ
-			</h2>
+			<h2 className={style.cardForm__title}>ВАШИ ДАННЫЕ</h2>
 
 			<div className={style.cardForm__inputBlock}>
-				<label className={style.cardForm__label} htmlFor="name">Имя</label>
-				<input className={style.cardForm__input}
-							 id='name'
-							 onChange={changeName}
-							 value={name}
-							 required={true}
-							 type="text"/>
+				<label className={style.cardForm__label} htmlFor="name">
+					Имя
+				</label>
+				<input
+					className={style.cardForm__input}
+					id="name"
+					onChange={changeName}
+					value={name}
+					required={true}
+					type="text"
+				/>
 			</div>
 			<div className={style.cardForm__inputBlock}>
-				<label className={style.cardForm__label} htmlFor="tel">Телефон</label>
-				<input className={style.cardForm__input}
-							 onChange={changePhone}
-							 value={phone}
-							 required={true}
-							 id='tel'
-							 type="tel"/>
+				<label className={style.cardForm__label} htmlFor="tel">
+					Телефон
+				</label>
+				<input
+					className={style.cardForm__input}
+					onChange={changePhone}
+					value={phone}
+					required={true}
+					id="tel"
+					type="tel"
+				/>
 			</div>
 			<div className={style.cardForm__inputBlock}>
-				<label className={style.cardForm__label} htmlFor="email">E-mail</label>
-				<input className={style.cardForm__input}
-							 onChange={changeEmail}
-							 value={email}
-							 required={true}
-							 id='email'
-							 type="email"/>
+				<label className={style.cardForm__label} htmlFor="email">
+					E-mail
+				</label>
+				<input
+					className={style.cardForm__input}
+					onChange={changeEmail}
+					value={email}
+					required={true}
+					id="email"
+					type="email"
+				/>
 			</div>
 
 			<p className={style.cardForm__callText}>Предпочитаемый способ связи</p>
 
 			<div className={style.cardForm__contacts}>
 				<label
-					className={[contact === 'telegram' ? style.cardForm__contactsLabelActive : null, style.cardForm__contactsLabel, style.cardForm__contactsLabelTelegram].join(' ')}>
-					<input className={style.cardForm__contactsRadio}
-								 onClick={handleContact}
-								 value="telegram"
-								 name="contact"
-								 type="radio"/>
+					className={[
+						contact === 'telegram' ? style.cardForm__contactsLabelActive : null,
+						style.cardForm__contactsLabel,
+						style.cardForm__contactsLabelTelegram,
+					].join(' ')}
+				>
+					<input
+						className={style.cardForm__contactsRadio}
+						onClick={handleContact}
+						value="telegram"
+						name="contact"
+						type="radio"
+					/>
 				</label>
 				<label
-					className={[contact === 'whatsup' ? style.cardForm__contactsLabelActive : null, style.cardForm__contactsLabel, style.cardForm__contactsLabelWhatsup].join(' ')}>
-					<input className={style.cardForm__contactsRadio}
-								 onClick={handleContact}
-								 value="whatsup"
-								 name="contact"
-								 type="radio"/>
+					className={[
+						contact === 'whatsup' ? style.cardForm__contactsLabelActive : null,
+						style.cardForm__contactsLabel,
+						style.cardForm__contactsLabelWhatsup,
+					].join(' ')}
+				>
+					<input
+						className={style.cardForm__contactsRadio}
+						onClick={handleContact}
+						value="whatsup"
+						name="contact"
+						type="radio"
+					/>
 				</label>
 				<label
-					className={[contact === 'phone' ? style.cardForm__contactsLabelActive : null, style.cardForm__contactsLabel, style.cardForm__contactsLabelPhone].join(' ')}>
-					<input className={style.cardForm__contactsRadio}
-								 onClick={handleContact}
-								 value="phone"
-								 name="contact"
-								 type="radio"/>
+					className={[
+						contact === 'phone' ? style.cardForm__contactsLabelActive : null,
+						style.cardForm__contactsLabel,
+						style.cardForm__contactsLabelPhone,
+					].join(' ')}
+				>
+					<input
+						className={style.cardForm__contactsRadio}
+						onClick={handleContact}
+						value="phone"
+						name="contact"
+						type="radio"
+					/>
 				</label>
 				<label
-					className={[contact === 'mail' ? style.cardForm__contactsLabelActive : null, style.cardForm__contactsLabel, style.cardForm__contactsLabelMail].join(' ')}>
-					<input className={style.cardForm__contactsRadio}
-								 onClick={handleContact}
-								 value="mail"
-								 name="contact"
-								 type="radio"/>
+					className={[
+						contact === 'mail' ? style.cardForm__contactsLabelActive : null,
+						style.cardForm__contactsLabel,
+						style.cardForm__contactsLabelMail,
+					].join(' ')}
+				>
+					<input
+						className={style.cardForm__contactsRadio}
+						onClick={handleContact}
+						value="mail"
+						name="contact"
+						type="radio"
+					/>
 				</label>
 			</div>
 
@@ -156,8 +193,6 @@ const CardForm: FC<{}> = ({ updateStatus }) => {
 			</button>
 		</form>
 	)
-
 }
-
 
 export default CardForm
