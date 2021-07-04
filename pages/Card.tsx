@@ -1,6 +1,8 @@
 import { FC, useEffect, useState } from 'react'
 import CardLeft from '../components/cardLeft'
 import CardForm from '../components/cardForm'
+import CardNull from '../components/cardNull'
+import CardConfirm from '../components/cardConfirm'
 
 
 const Card: FC<{}> = ({}) => {
@@ -30,17 +32,17 @@ const Card: FC<{}> = ({}) => {
 
 	return (
 		<>
-			<main className="card">
+			<main className={['card', status != 1 ? 'card-state-2' : null].join(' ')}>
 				<div className="container">
-					<div className="card__wrapper">
+					<div className={['card__wrapper', status != 1 ? 'card-center' : null].join(' ')}>
 						{status === 1 ? (
 							<>
 								<CardLeft updateStatus={updateStatus}/>
 								<CardForm updateStatus={updateStatus}/>
 							</>
 						) : status === 2 ?
-							(<div>Спасибо за заказ</div>)
-							: (<p>Корзина пуста</p>)}
+							(<CardConfirm />)
+							: (<CardNull />)}
 					</div>
 				</div>
 			</main>
