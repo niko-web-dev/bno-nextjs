@@ -5,7 +5,7 @@ import CardNull from '../components/cardNull'
 import CardConfirm from '../components/cardConfirm'
 import { TProducts } from '../types'
 
-const Card: FC<TProducts> = ({ products } => {
+const Card: FC<TProducts> = ({ products }) => {
 	const [status, setStatus] = useState(0)
 
 	useEffect(() => {
@@ -32,6 +32,7 @@ const Card: FC<TProducts> = ({ products } => {
 			<main className={['card', status != 1 ? 'card-state-2' : null].join(' ')}>
 				<div className="container">
 					<div
+						style={{display: 'flex'}}
 						className={[
 							'card__wrapper',
 							status != 1 ? 'card-center' : null,
