@@ -3,7 +3,6 @@ import StartWindow from '../components/startWindow'
 import { NextPage } from 'next'
 import GallerySlider from '../components/gallerySlider'
 import Details from '../components/details'
-import Footer from '../components/footer'
 import { TProducts } from '../types'
 import Menu from '../components/menu'
 
@@ -18,7 +17,6 @@ const Home: NextPage<TProducts> = ({ products }) => {
 			<StartWindow />
 			<GallerySlider products={products} />
 			<Details />
-			<Footer />
 		</>
 	)
 }

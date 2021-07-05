@@ -6,6 +6,7 @@ import { animation } from '../animation/animation'
 import '../public/styles/globals.css'
 
 import Header from '../components/header'
+import Footer from '../components/footer'
 
 function MyApp({ Component, pageProps, router }: AppProps) {
 	return (
@@ -18,6 +19,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 			<MenuProvider>
 				<Header />
 				<Component {...pageProps} />
+				<Footer />
 			</MenuProvider>
 		</motion.div>
 	)
