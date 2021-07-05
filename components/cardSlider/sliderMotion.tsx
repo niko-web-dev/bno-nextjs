@@ -40,6 +40,7 @@ export const SliderMotion: FC<TSinglePageGallery> = ({ gallery }) => {
 			})}
 
 			<Pagination slide={slide} setSlide={setSlide} withCount position="left" />
+
 		</>
 	)
 }

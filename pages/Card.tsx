@@ -3,8 +3,9 @@ import CardLeft from '../components/cardLeft'
 import CardForm from '../components/cardForm'
 import CardNull from '../components/cardNull'
 import CardConfirm from '../components/cardConfirm'
+import { TProducts } from '../types'
 
-const Card: FC = () => {
+const Card: FC<TProducts> = ({ products } => {
 	const [status, setStatus] = useState(0)
 
 	useEffect(() => {
@@ -26,7 +27,6 @@ const Card: FC = () => {
 			setStatus(2)
 		}
 	}
-
 	return (
 		<>
 			<main className={['card', status != 1 ? 'card-state-2' : null].join(' ')}>

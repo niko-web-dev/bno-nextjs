@@ -94,6 +94,7 @@ const MainSlider: FC = () => {
 									src="/static/images/slider/one/mash-1.jpg"
 									width={1089}
 									height={895}
+									alt="mash"
 								/>
 							</div>
 						</div>

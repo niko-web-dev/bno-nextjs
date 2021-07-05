@@ -65,15 +65,12 @@ li {
 .hide {
 	display: none;
 }
-
-/* card */
 .card {
 	padding: 215px 0;
 	position: relative;
 	width: 100%;
 	background: linear-gradient(to right, white 55%, #f1f1f1 45%);
 }
-
 .card-state-2 {
 	background: #f1f1f1;
 }
@@ -86,6 +83,3 @@ li {
 	justify-content: center;
 }
 
-.card__wrapper {
-	display: flex;
-}
