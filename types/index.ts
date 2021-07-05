@@ -30,6 +30,7 @@ export type TBrands = {
 	slug: string
 	type: string
 }
+
 export type TProduct = {
 	brands: TBrands[]
 	id: number
@@ -41,10 +42,28 @@ export type TProduct = {
 	main_image: TGallery
 	price: string
 	slug: string
-	related_posts: []
+	related_posts?: TRelatedProd[]
 	title: string
+	sizes?: string[]
 }
-
+export type TRelatedProd = {
+	id: string
+	title: string
+	color: string
+	slug: string
+}
 export type TProducts = {
 	products: TProduct[]
+}
+
+export type TCartProduct = {
+	brands: TBrands[]
+	code: string
+	id: number
+	image: string
+	index: number
+	price: string
+	size: string
+	title: string
+	deleteItem: (number) => void
 }

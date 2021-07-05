@@ -1,17 +1,19 @@
 import { FC } from 'react'
 import style from '../cardLeft.module.scss'
 import Image from 'next/image'
-import { TProduct } from '../../../types'
+import { TCartProduct, TProduct } from '../../../types'
 
-const CardItem: FC<TProduct> = (product) => {
+const CardItem: FC<TCartProduct> = (product) => {
+
 	const deleteItem = () => {
 		alert('delete: ' + product.id)
 	}
+
 	return (
 		<div className={style.cardProduct__item}>
 			<Image
 				className={style.cardProduct__image}
-				src={product.main_image.src}
+				src={product.image}
 				width={245}
 				height={300}
 				alt="brand"
@@ -26,7 +28,14 @@ const CardItem: FC<TProduct> = (product) => {
 				</p>
 				<p className={style.cardProduct__price}>{product.price} ₽</p>
 
-				<button className={style.cardProduct__delete} onClick={deleteItem}>
+
+				<button
+					className={style.cardProduct__delete}
+					onClick={() => {
+						product.deleteItem(product.index)
+					}}
+				>
+
 					<svg
 						width="22"
 						height="23"

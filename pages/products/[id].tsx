@@ -7,6 +7,7 @@ import s from './product-page.module.scss'
 import { SliderMotion } from '../../components/cardSlider/sliderMotion'
 import { FC } from 'react'
 import { TProducts, TProduct } from '../../types'
+import ProductInfo from '../../components/productInfo'
 
 export type TSingleProduct = {
 	product: TProduct
@@ -33,7 +34,7 @@ const ProductPage: FC<TSingleProduct> = ({ product }) => {
 						<SliderMotion {...product} />
 					</div>
 
-					<div className={s.card__info}>Инфо</div>
+					<ProductInfo product={product} />
 				</div>
 			</div>
 		</div>

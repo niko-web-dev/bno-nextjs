@@ -1,28 +1,57 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 import CardLeft from '../components/cardLeft'
 import CardForm from '../components/cardForm'
+import CardNull from '../components/cardNull'
+import CardConfirm from '../components/cardConfirm'
 import { TProducts } from '../types'
 
-const Card: FC<TProducts> = ({ products }) => {
+const Card: FC<TProducts> = ({ products } => {
+	const [status, setStatus] = useState(0)
+
+	useEffect(() => {
+		const data = JSON.parse(localStorage.getItem('product'))
+		if (data != null && data.length > 0) {
+			setStatus(1)
+		}
+	}, [])
+
+	function updateStatus(value: number) {
+		if (value === 1) {
+			const data = JSON.parse(localStorage.getItem('product'))
+			if (data.length > 0) {
+				setStatus(1)
+			} else {
+				setStatus(0)
+			}
+		} else {
+			setStatus(2)
+		}
+	}
 	return (
 		<>
-			<main className="card">
+			<main className={['card', status != 1 ? 'card-state-2' : null].join(' ')}>
 				<div className="container">
-					<div className="card__wrapper">
-						<CardLeft products={products}> </CardLeft>
-						<CardForm />
+					<div
+						className={[
+							'card__wrapper',
+							status != 1 ? 'card-center' : null,
+						].join(' ')}
+					>
+						{status === 1 ? (
+							<>
+								<CardLeft updateStatus={updateStatus} />
+								<CardForm updateStatus={updateStatus} />
+							</>
+						) : status === 2 ? (
+							<CardConfirm />
+						) : (
+							<CardNull />
+						)}
 					</div>
 				</div>
 			</main>
 		</>
 	)
-}
-
-export async function getServerSideProps() {
-	const res = await fetch(`http://wp.iqwik.ru/wp-json/wp/v2/products/`)
-	const products = await res.json()
-
-	return { props: { products } }
 }
 
 export default Card
