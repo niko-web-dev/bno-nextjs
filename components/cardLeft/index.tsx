@@ -1,10 +1,12 @@
 import { FC, Fragment, useEffect, useState } from 'react'
 import CardItem from './components/cardItem'
 import style from './cardLeft.module.scss'
-import { TCartProduct, TProduct } from '../../types'
+import { TCartProduct, TProduct, TUpdate } from '../../types'
 
-// @ts-ignore
-const CardLeft: FC = ({ updateStatus }) => {
+
+
+
+const CardLeft: FC<TUpdate> = ({ updateStatus }) => {
 	const [products, setProducts] = useState<TCartProduct[]>([])
 
 	useEffect(() => {

@@ -1,7 +1,8 @@
 import { FC, useState } from 'react'
 import style from './cardForm.module.scss'
+import { TUpdate } from '../../types'
 
-const CardForm: FC = ({ updateStatus }) => {
+const CardForm: FC<TUpdate> = ({ updateStatus }) => {
 	const [name, setName] = useState('')
 	const [phone, setPhone] = useState('')
 	const [email, setEmail] = useState('')
@@ -11,6 +12,7 @@ const CardForm: FC = ({ updateStatus }) => {
 		e.preventDefault()
 		if (name != '' && phone != '' && email != '') {
 			let orderProducts = JSON.parse(localStorage.getItem('product'))
+			console.log(orderProducts)
 			let cardProducts = {}
 			let totalCost = 0
 			for (let item in orderProducts) {
@@ -35,7 +37,7 @@ const CardForm: FC = ({ updateStatus }) => {
 				contact_method: contact,
 			}
 
-			let response = await fetch('http://wp.iqwik.ru/wp-json/wp/v2/orders', {
+			let response = await fetch('http://wp.brandneworder.ru/wp-json/wp/v2/orders', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/x-www-form-urlencoded',
@@ -55,7 +57,7 @@ const CardForm: FC = ({ updateStatus }) => {
 		let data = {
 			email: userMail,
 		}
-		let response = await fetch('http://wp.iqwik.ru/wp-json/wp/v2/subscribe', {
+		let response = await fetch('http://wp.brandneworder.ru/wp-json/wp/v2/subscribe', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded',

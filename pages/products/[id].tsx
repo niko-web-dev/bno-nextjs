@@ -43,7 +43,7 @@ const ProductPage: FC<TSingleProduct> = ({ product }) => {
 
 export async function getServerSideProps(ctx) {
 	const { id } = ctx.query
-	const res = await fetch(`http://wp.iqwik.ru/wp-json/wp/v2/products/${id}`)
+	const res = await fetch(`http://wp.brandneworder.ru/wp-json/wp/v2/products/${id}`)
 	const product = await res.json()
 
 	return { props: { product } }
