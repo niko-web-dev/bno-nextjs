@@ -23,7 +23,7 @@ const Footer = () => {
 		let data = {
 			email: email
 		}
-		let response = await fetch('http://wp.iqwik.ru/wp-json/wp/v2/subscribe', {
+		let response = await fetch('http://wp.brandneworder.ru/wp-json/wp/v2/subscribe', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded'
@@ -59,21 +59,21 @@ const Footer = () => {
 						<button className={s.footer__subscriptionButton} onClick={subscriberUser}>подписаться</button>
 					</div>
 					<div className={s.footer__social}>
-						<Link href={`telegram`}>
+						<Link href={`/telegram`}>
 							<a
 								className={s.footer__socialLink}
 							>
 								telegram
 							</a>
 						</Link>
-						<Link href={`instagram`}>
+						<Link href={`/instagram`}>
 							<a
 								className={s.footer__socialLink}
 							>
 								instagram
 							</a>
 						</Link>
-						<Link href={`share`}>
+						<Link href={`/share`}>
 							<a
 								className={s.footer__socialLink}
 							>

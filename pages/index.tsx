@@ -22,7 +22,7 @@ const Home: NextPage<TProducts> = ({ products }) => {
 }
 
 export async function getServerSideProps() {
-	const res = await fetch(`http://wp.iqwik.ru/wp-json/wp/v2/products/`)
+	const res = await fetch(`http://wp.brandneworder.ru/wp-json/wp/v2/products/`)
 	const products = await res.json()
 
 	return { props: { products } }

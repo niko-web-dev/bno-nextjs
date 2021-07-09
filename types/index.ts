@@ -67,3 +67,7 @@ export type TCartProduct = {
 	title: string
 	deleteItem: (number) => void
 }
+
+export type TUpdate = {
+	updateStatus: (number) => void
+}
