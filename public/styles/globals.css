@@ -83,3 +83,12 @@ li {
 	justify-content: center;
 }
 
+@media screen and (max-width: 951px) {
+	.card {
+		background: #ffffff;
+	}
+	.card__wrapper{
+		flex-direction: column;
+	}
+}
+
