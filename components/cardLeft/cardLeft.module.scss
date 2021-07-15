@@ -1,8 +1,9 @@
 .cardProduct {
 	display: flex;
 	flex-direction: column;
-	max-width: 840px;
+	max-width: 735px;
 	width: 100%;
+	margin-right: 5vw;
 
 	&__total {
 		display: flex;
@@ -10,6 +11,9 @@
 		width: 100%;
 		align-items: center;
 		justify-content: space-between;
+		@media screen and (max-width: 651px) {
+			padding: 57px 0;
+		}
 		p {
 			margin: 0;
 			padding: 0;
@@ -35,6 +39,12 @@
 		width: 100%;
 		display: flex;
 		border-bottom: 1px solid #f1f1f1;
+		@media screen and (max-width: 651px) {
+			padding: 25px 5px;
+		}
+		@media screen and (max-width: 421px) {
+			flex-direction: column;
+		}
 	}
 	&__image {
 		object-fit: cover !important;
@@ -42,6 +52,9 @@
 		max-height: 300px !important;
 		width: 100% !important;
 		height: auto !important;
+		@media screen and (max-width: 421px) {
+			object-fit: contain !important;
+		}
 	}
 	&__info {
 		display: flex;
@@ -50,6 +63,9 @@
 		max-width: 350px;
 		width: 100%;
 		position: relative;
+		@media screen and (max-width: 421px) {
+			margin: 0;
+		}
 	}
 	&__title {
 		font-family: Eurostile;
