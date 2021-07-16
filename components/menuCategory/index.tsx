@@ -48,6 +48,7 @@ const MenuCategory: FC = (brand) => {
 				})
 			})
 
+			// @ts-ignore
 			setCategories(topCategory);
 		})
 	}, [])
