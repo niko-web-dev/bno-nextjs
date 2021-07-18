@@ -56,6 +56,7 @@
 		background: none;
 		border: none;
 		cursor: pointer;
+		z-index: 10;
 	}
 
 	&__input{
@@ -95,12 +96,23 @@
 		align-items: center;
 		justify-content: center;
 		margin-top: -40px;
+		@media (max-width: 661px) {
+			position: absolute;
+			max-width: 380px;
+			width: 90%;
+			margin: 0 auto;
+			padding-top: 20px;
+			z-index: 0;
+		}
 		h2{
 			margin-bottom: 45px;
 			font-weight: bold;
 			font-size: 18px;
 			line-height: 22px;
 			letter-spacing: 0.15em;
+			@media (max-width: 661px) {
+				margin-bottom: 60px;
+			}
 		}
 	}
 	&__tab{

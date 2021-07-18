@@ -5,8 +5,10 @@ import Link from 'next/link'
 
 
 
-const MenuCategory: FC = (brand) => {
+const MenuCategory: FC = () => {
 	const [categories, setCategories] = useState([])
+	const [categoriesOpen, setCategoriesOpen] = useState(1)
+	let checkClass;
 
 	async function getMenuApi(endpoint){
 		const res = await fetch(`http://wp.brandneworder.ru/wp-json/wp/v2/${endpoint}/`)
@@ -23,10 +25,13 @@ const MenuCategory: FC = (brand) => {
 				let newItem;
 				newItem = res[item];
 
+				console.log(newItem)
+
 				if (newItem.parent_id === 0) {
 					let myItem = {
 						'id': newItem.id,
 						'name': newItem.title,
+						'isActive': false,
 						'subcategories': []
 					}
 					topCategory.push(myItem)
@@ -53,6 +58,19 @@ const MenuCategory: FC = (brand) => {
 		})
 	}, [])
 
+	function activeMenu(newId) {
+		let oldCateg = categories;
+
+		for (let item in oldCateg){
+			if (oldCateg[item].id === newId){
+				oldCateg[item].isActive = !categories[item].isActive;
+				setCategoriesOpen(oldCateg[item].id * (Math.random() * 125))
+			}
+		}
+		setCategories(oldCateg)
+	}
+
+
 
 	return (
 		<>
@@ -60,8 +78,12 @@ const MenuCategory: FC = (brand) => {
 				{
 					categories?.map(item => {
 						return (
-							<div className={s.wrapper__item} key={item.id}>
-								<h2 className={s.wrapper__title}>{item.name}</h2>
+							<div className={[s.wrapper__item, item.isActive && categoriesOpen ? s.wrapperActive : ''].join(' ')} key={item.id}>
+
+								<h2 className={s.wrapper__title} onClick={(e) => {
+									e.preventDefault();
+									activeMenu(item.id)
+								}}>{item.name}</h2>
 								<ul className={s.wrapper__list}>
 									{
 										item?.subcategories.map(item => {
