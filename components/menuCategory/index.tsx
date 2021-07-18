@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 
 const MenuCategory: FC = (brand) => {
-	const [categories, setCategories] = useState()
+	const [categories, setCategories] = useState([])
 
 	async function getMenuApi(endpoint){
 		const res = await fetch(`http://wp.brandneworder.ru/wp-json/wp/v2/${endpoint}/`)
@@ -48,6 +48,7 @@ const MenuCategory: FC = (brand) => {
 				})
 			})
 
+			// @ts-ignore
 			setCategories(topCategory);
 		})
 	}, [])

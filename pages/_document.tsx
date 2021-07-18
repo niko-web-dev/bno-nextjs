@@ -7,6 +7,7 @@ class MyDocument extends Document {
 				<Head>
 					<link href="../../public/fonts/Eurostile-Bold.otf" />
 					<link href="../../public/fonts/Eurostile-Regular.otf" />
+					<title>BNO</title>
 				</Head>
 				<body>
 					<Main />
