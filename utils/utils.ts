@@ -4,7 +4,7 @@
 //     slideCount: number
 // }
 
-export default function changeSlideCount(
+export function changeSlideCount(
 	slide: number,
 	comand: string,
 	slideCount: number
@@ -18,3 +18,5 @@ export default function changeSlideCount(
 		if (slide === 1) return slideCount
 	}
 }
+
+

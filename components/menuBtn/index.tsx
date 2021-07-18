@@ -4,6 +4,7 @@ import Image from 'next/image'
 
 const MenuBtn: FC = () => {
 	const [toggleMenu, setToggleMenu] = useContext(contextMenu)
+	console.log(toggleMenu);
 
 	function handleMenu() {
 		setToggleMenu(!toggleMenu)

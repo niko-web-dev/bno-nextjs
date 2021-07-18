@@ -39,13 +39,16 @@ const CardForm: FC<TUpdate> = ({ updateStatus }) => {
 				contact_method: contact,
 			}
 
-			let response = await fetch('http://wp.brandneworder.ru/wp-json/wp/v2/orders', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/x-www-form-urlencoded',
-				},
-				body: new URLSearchParams(data),
-			})
+			let response = await fetch(
+				'http://wp.brandneworder.ru/wp-json/wp/v2/orders',
+				{
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/x-www-form-urlencoded',
+					},
+					body: new URLSearchParams(data),
+				}
+			)
 
 			let result = await response.json()
 
@@ -59,13 +62,16 @@ const CardForm: FC<TUpdate> = ({ updateStatus }) => {
 		let data = {
 			email: userMail,
 		}
-		let response = await fetch('http://wp.brandneworder.ru/wp-json/wp/v2/subscribe', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded',
-			},
-			body: new URLSearchParams(data),
-		})
+		let response = await fetch(
+			'http://wp.brandneworder.ru/wp-json/wp/v2/subscribe',
+			{
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded',
+				},
+				body: new URLSearchParams(data),
+			}
+		)
 
 		let result = await response.json()
 		updateStatus(2)
