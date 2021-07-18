@@ -34,6 +34,12 @@
 		grid-template-columns: repeat(3, 1fr);
 		grid-template-rows: repeat(1, 1fr);
 		grid-gap: 30px;
+		@media (max-width: 661px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@media (max-width: 421px) {
+			grid-template-columns: repeat(1, 1fr);
+		}
 	}
 	&__item{
 		max-width: 360px;
