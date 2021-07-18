@@ -7,10 +7,16 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		@media screen and (max-width: 651px) {
+			flex-direction: column;
+		}
 	}
 	&__logo{
 		display: flex;
 		align-items: center;
+		@media screen and (max-width: 651px) {
+			margin-bottom: 10px;
+		}
 		p{
 			margin-left: 10px;
 			font-family: Eurostile;
@@ -40,6 +46,9 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		@media screen and (max-width: 651px) {
+			margin-bottom: 10px;
+		}
 		&Title{
 			font-family: Eurostile;
 			font-style: normal;
@@ -93,12 +102,20 @@
 	&__social{
 		display: flex;
 		flex-direction: column;
+		@media screen and (max-width: 651px) {
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+		}
 		&Link{
 			cursor: pointer;
 			width: 25px;
 			height: 25px;
 			font-size: 0px;
 			background: no-repeat url("../../public/static/images/footer-sprice.png") 11% 13%/100%;
+			@media screen and (max-width: 651px) {
+				background-position-y: 18%;
+			}
 			&:nth-child(2){
 				background-position-y: 58%;
 			}
@@ -107,6 +124,9 @@
 			}
 			&+&{
 				margin-top: 25px;
+				@media screen and (max-width: 651px) {
+					margin: 0 0 0 15px;
+				}
 			}
 		}
 	}

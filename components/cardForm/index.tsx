@@ -1,7 +1,6 @@
 import { FC, useState } from 'react'
 import style from './cardForm.module.scss'
 import { TUpdate } from '../../types'
-
 const CardForm: FC<TUpdate> = ({ updateStatus }) => {
 	const [name, setName] = useState('')
 	const [phone, setPhone] = useState('')
@@ -12,14 +11,17 @@ const CardForm: FC<TUpdate> = ({ updateStatus }) => {
 		e.preventDefault()
 		if (name != '' && phone != '' && email != '') {
 			let orderProducts = JSON.parse(localStorage.getItem('product'))
-			console.log(orderProducts)
 			let cardProducts = {}
 			let totalCost = 0
 			for (let item in orderProducts) {
 				item = orderProducts[item]
+				// @ts-ignore
 				totalCost += +item.price
+				// @ts-ignore
 				cardProducts[item.id] = {
+					// @ts-ignore
 					price: item.price,
+					// @ts-ignore
 					size: item.size,
 					qty: 1,
 				}
