@@ -1,9 +1,7 @@
-import { FC, useState } from 'react'
+import { useState } from 'react'
 import style from './categoryFilter.module.scss'
-import { TProducts } from '../../types'
 
-const CategoryFilter = (props) => {
-	let products = props.products
+const CategoryFilter = ({closeAside, filterActive, products, updateFilter}) => {
 	const [brandOpen, setBrandOpen] = useState(false)
 	const [typeOpen, setTypeOpen] = useState(false)
 	const [colorOpen, setColorOpen] = useState(false)
@@ -14,6 +12,7 @@ const CategoryFilter = (props) => {
 		size: [],
 		type: [],
 	})
+
 	let brands = [],
 		type = [],
 		color = [],
@@ -68,6 +67,7 @@ const CategoryFilter = (props) => {
 
 		return { h: h, s: s, l: l }
 	}
+	
 	function colorName(hsl) {
 		var l = Math.floor(hsl.l),
 			s = Math.floor(hsl.s),
@@ -102,6 +102,7 @@ const CategoryFilter = (props) => {
 			return 'Розовый'
 		}
 	}
+
 	products?.map((product) => {
 		checkColor.push(product.color)
 		brands.push({
@@ -119,7 +120,9 @@ const CategoryFilter = (props) => {
 			})
 		})
 	})
+
 	checkColor = [...new Set(checkColor)]
+
 	checkColor.map((item) => {
 		let hsl = hexToHSL(item)
 		let name = colorName(hsl)
@@ -129,14 +132,17 @@ const CategoryFilter = (props) => {
 			slug: item,
 		})
 	})
+
 	size = size.filter(
 		(v, i, a) =>
 			a.findIndex((t) => t.slug === v.slug && t.name === v.name) === i
 	)
+
 	type = type.filter(
 		(v, i, a) =>
 			a.findIndex((t) => t.slug === v.slug && t.name === v.name) === i
 	)
+	
 	brands = brands.filter(
 		(v, i, a) =>
 			a.findIndex((t) => t.slug === v.slug && t.name === v.name) === i
@@ -157,19 +163,19 @@ const CategoryFilter = (props) => {
 				[categ]: prevArray,
 			})
 		}
-		props.updateFilter(filters)
+		updateFilter(filters)
 	}
 
 	function closeMenu(e) {
 		e.preventDefault()
-		props.closeAside(false)
+		closeAside(false)
 	}
 
 	return (
 		<aside
 			className={[
 				style.filter,
-				props.filterActive ? style.filterActive : null,
+				filterActive ? style.filterActive : null,
 			].join(' ')}
 		>
 			<button className={style.filter__close} onClick={closeMenu}>

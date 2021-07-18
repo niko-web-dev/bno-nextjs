@@ -7,6 +7,9 @@ import s from './products.module.scss'
 import CategoryFilter from '../../components/categoryFilter/index.js'
 
 const Products: FC<TProducts> = ({ products }) => {
+	const [actualProduct, setActualProduct] = useState(products)
+	const [filterActive, setFilterActive] = useState(false)
+
 	products.map((item) => {
 		if (!item.brands[0]) {
 			item.brands[0] = {
@@ -14,8 +17,6 @@ const Products: FC<TProducts> = ({ products }) => {
 			}
 		}
 	})
-	const [actualProduct, setActualProduct] = useState(products)
-	const [filterActive, setFilterActive] = useState(false)
 
 	function closeAside(check) {
 		setFilterActive(check)
