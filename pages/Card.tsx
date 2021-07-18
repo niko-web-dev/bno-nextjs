@@ -32,7 +32,7 @@ const Card: FC<TProducts> = ({ products }) => {
 			<main className={['card', status != 1 ? 'card-state-2' : null].join(' ')}>
 				<div className="container">
 					<div
-						style={{display: 'flex'}}
+						style={{ display: 'flex' }}
 						className={[
 							'card__wrapper',
 							status != 1 ? 'card-center' : null,

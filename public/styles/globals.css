@@ -87,8 +87,7 @@ li {
 	.card {
 		background: #ffffff;
 	}
-	.card__wrapper{
+	.card__wrapper {
 		flex-direction: column;
 	}
 }
-

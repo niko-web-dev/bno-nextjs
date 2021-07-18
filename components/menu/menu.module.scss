@@ -17,21 +17,21 @@
 		z-index: 9000;
 		overflow: hidden;
 	}
-	&__wrapper{
+	&__wrapper {
 		display: flex;
 		flex-direction: column;
 		min-height: 680px;
 	}
 
-	&__info{
+	&__info {
 		width: 210px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		&Active{
+		&Active {
 			margin-left: auto;
 		}
-		a{
+		a {
 			font-weight: bold;
 			font-size: 14px;
 			line-height: 17px;
@@ -40,14 +40,14 @@
 	}
 }
 
-.header{
+.header {
 	display: flex;
 	width: 100%;
 	align-items: center;
 	justify-content: space-between;
 	margin-bottom: 170px;
 
-	&__close{
+	&__close {
 		width: 64px;
 		height: 36px;
 		display: flex;
@@ -58,16 +58,15 @@
 		cursor: pointer;
 	}
 
-	&__input{
+	&__input {
 		display: flex;
 		align-items: center;
 	}
 
-	&__seacrh{
-
+	&__seacrh {
 		cursor: pointer;
 		position: relative;
-		input{
+		input {
 			display: block;
 			position: absolute;
 			top: -3px;
@@ -76,11 +75,11 @@
 			height: 100%;
 			opacity: 0;
 		}
-		input:focus{
+		input:focus {
 			opacity: 1;
 		}
 	}
-	&__card{
+	&__card {
 		margin-left: 35px;
 		display: flex;
 		width: 30px;
@@ -89,13 +88,13 @@
 		justify-content: center;
 	}
 
-	&__tabs{
+	&__tabs {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		margin-top: -40px;
-		h2{
+		h2 {
 			margin-bottom: 45px;
 			font-weight: bold;
 			font-size: 18px;
@@ -103,20 +102,20 @@
 			letter-spacing: 0.15em;
 		}
 	}
-	&__tab{
+	&__tab {
 		width: 140px;
 		padding-bottom: 20px;
 		border: none;
 		background: none;
-		border-bottom: 1px solid #DADADA;
+		border-bottom: 1px solid #dadada;
 		font-weight: normal;
 		font-size: 12px;
 		line-height: 14px;
 		text-align: center;
 		letter-spacing: 0.15em;
-		transition: all .5s ease;
+		transition: all 0.5s ease;
 		cursor: pointer;
-		&Active{
+		&Active {
 			font-weight: bold;
 			border-bottom: 1px solid #000000;
 		}

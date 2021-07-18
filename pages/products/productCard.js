@@ -1,28 +1,27 @@
 import Link from 'next/link'
 import s from './product-card.module.scss'
 import Image from 'next/image'
-import { TProduct } from '../../types'
-import { FC } from 'react'
 
-const ProductCard: FC<TProduct> = (product) => {
+
+const ProductCard = ({id, main_image, code, title, price}) => {
 	return (
-		<Link href={`/products/${product.id}`} shallow={true}>
+		<Link href={`/products/${id}`} shallow={true}>
 			<a>
 				<div
 					className={s.product__card}
 					style={{
-						backgroundImage: 'url(' + `${product.main_image.src}` + ')',
+						backgroundImage: 'url(' + `${main_image?.src}` + ')',
 					}}
 				>
 					{/*<div className={s.product__card_brandImg}>*/}
 					{/*  <Image src={prod.prod.scrBrand} alt="brand" width={45} height={45} />*/}
 					{/*</div>*/}
 					<h3 className={s.product__card_title}>
-						<span>{product.code}</span>
-						{product.title}
+						<span>{code}</span>
+						{title}
 					</h3>
 					<div className={s.product__card_price}>
-						{product.price}
+						{price}
 						<span>
 							<Image
 								src={'/static/images/gallery/r.png'}
