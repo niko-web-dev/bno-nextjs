@@ -6,7 +6,6 @@ import s from './menu.module.scss'
 import { motion } from 'framer-motion'
 import { contextMenu } from '../../context/contextMenu'
 import { animation } from '../../animation/animation'
-import container from 'postcss/lib/container'
 import MenuBrands from '../menuBrands'
 import MenuCategory from '../menuCategory'
 

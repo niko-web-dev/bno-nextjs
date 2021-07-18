@@ -25,8 +25,6 @@ const MenuCategory: FC = (brand) => {
 				let newItem
 				newItem = res[item]
 
-				console.log(newItem)
-
 				if (newItem.parent_id === 0) {
 					let myItem = {
 						'id': newItem.id,
