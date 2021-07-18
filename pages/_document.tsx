@@ -5,13 +5,13 @@ class MyDocument extends Document {
 		return (
 			<Html>
 				<Head>
-					<link href="../../public/fonts/Eurostile-Bold.otf" />
-					<link href="../../public/fonts/Eurostile-Regular.otf" />
 					<title>BNO</title>
+					<link href="/public/fonts/Eurostile-Bold.otf" />
+					<link href="/public/fonts/Eurostile-Regular.otf" />
 				</Head>
+
 				<body>
 					<Main />
-
 					<NextScript />
 				</body>
 			</Html>

@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { TCartProduct, TProduct } from '../../../types'
 
 const CardItem: FC<TCartProduct> = (product) => {
-
 	const deleteItem = () => {
 		alert('delete: ' + product.id)
 	}
@@ -28,14 +27,12 @@ const CardItem: FC<TCartProduct> = (product) => {
 				</p>
 				<p className={style.cardProduct__price}>{product.price} ₽</p>
 
-
 				<button
 					className={style.cardProduct__delete}
 					onClick={() => {
 						product.deleteItem(product.index)
 					}}
 				>
-
 					<svg
 						width="22"
 						height="23"

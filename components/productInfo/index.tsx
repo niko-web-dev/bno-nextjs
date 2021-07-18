@@ -25,7 +25,8 @@ const ProductInfo: FC<TSingleProduct> = ({ product }) => {
 		}
 		allColors.sort((a, b) => (a.id > b.id ? 1 : -1))
 		setColors(allColors)
-	}, [])
+	}, [product])
+
 	const handleSizes = (event) => {
 		event.preventDefault()
 		setSize(event.target.value)
@@ -65,23 +66,17 @@ const ProductInfo: FC<TSingleProduct> = ({ product }) => {
 			</div>
 			<h2 className={s.card__colorTitle}>Доступные цвета</h2>
 			<div className={s.card__colors}>
-				{colors.length > 0
-					? colors.map((item) => {
+				{/* {colors.length > 0
+					? colors.map(({id,color}) => {
 							return (
-								<Link href={`/products/${item.id}`} key={item.id}>
+								<Link href={`/products/${id}`} key={id}>
 									<a
-										className={[
-											s.card__colorsLink,
-											item.id === product.id ? s.card__colorsLinkActive : null,
-										].join(' ')}
-										style={{
-											background: item.color,
-										}}
+										
 									/>
 								</Link>
 							)
 					  })
-					: 'one color'}
+					: 'one color'} */}
 			</div>
 			<h2 className={s.card__sizesTitle}>Доступные размеры</h2>
 			<div className={s.card__sizes}>

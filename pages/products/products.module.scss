@@ -4,7 +4,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	&__button{
+	&__button {
 		background: none;
 		border: none;
 		margin-right: 6%;
@@ -16,10 +16,10 @@
 		justify-content: space-between;
 		cursor: pointer;
 		margin-bottom: 125px;
-		&Active &Text{
+		&Active &Text {
 			font-weight: bold;
 		}
-		&Text{
+		&Text {
 			font-family: Eurostile;
 			font-style: normal;
 			font-weight: normal;
@@ -29,7 +29,7 @@
 			letter-spacing: 0.15em;
 		}
 	}
-	&__wrapper{
+	&__wrapper {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		grid-template-rows: repeat(1, 1fr);
@@ -41,7 +41,7 @@
 			grid-template-columns: repeat(1, 1fr);
 		}
 	}
-	&__item{
+	&__item {
 		max-width: 360px;
 		max-height: 380px;
 		position: relative;
@@ -54,14 +54,14 @@
 		overflow: hidden;
 		border-radius: 25px;
 		box-shadow: 0px 0px 0px #dadada;
-		transition: box-shadow .5s ease;
-		&:hover{
+		transition: box-shadow 0.5s ease;
+		&:hover {
 			box-shadow: 0px 4px 30px #dadada;
 		}
-		&:hover &Help{
+		&:hover &Help {
 			transform: translateY(0);
 		}
-		&Title{
+		&Title {
 			font-family: Eurostile;
 			font-style: normal;
 			font-weight: normal;
@@ -71,22 +71,20 @@
 			text-transform: uppercase;
 			color: #000000;
 			width: fit-content;
-			transform: rotate(
-							180deg
-			);
+			transform: rotate(180deg);
 			max-height: 200px;
 			text-align: center;
-			writing-mode:vertical-rl;
+			writing-mode: vertical-rl;
 			margin: auto;
 		}
-		&Info{
+		&Info {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
 			flex-direction: column;
 			max-width: 260px;
 		}
-		&Price{
+		&Price {
 			font-family: Eurostile;
 			font-style: normal;
 			font-size: 18px;
@@ -94,20 +92,20 @@
 			text-align: center;
 			letter-spacing: 0.15em;
 		}
-		&Help{
+		&Help {
 			position: absolute;
 			top: 5px;
 			right: 12px;
 			display: flex;
 			transform: translateY(-120%);
-			transition: transform .5s ease;
+			transition: transform 0.5s ease;
 		}
-		&Sizes{
+		&Sizes {
 			display: flex;
 			flex-direction: column;
 			align-items: flex-start;
 			margin-right: 20px;
-			p{
+			p {
 				font-family: Eurostile;
 				font-style: normal;
 				font-weight: bold;
@@ -118,7 +116,7 @@
 				margin: 0;
 			}
 		}
-		&Color{
+		&Color {
 			width: 20px;
 			height: 9px;
 		}

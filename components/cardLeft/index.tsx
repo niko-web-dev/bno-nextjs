@@ -3,9 +3,6 @@ import CardItem from './components/cardItem'
 import style from './cardLeft.module.scss'
 import { TCartProduct, TProduct, TUpdate } from '../../types'
 
-
-
-
 const CardLeft: FC<TUpdate> = ({ updateStatus }) => {
 	const [products, setProducts] = useState<TCartProduct[]>([])
 
