@@ -1,28 +1,74 @@
-import Pagination from '../pagination'
-import { FC, useState } from 'react'
+import { FC, useRef, useState } from 'react'
 import s from './card-slider.module.scss'
 import Image from 'next/image'
+import SwiperCore, { Navigation, EffectFade,  Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+SwiperCore.use([Navigation, EffectFade,  Pagination]);
 
 const CardSlider = ({ images }) => {
-	const [slide, setSlide] = useState(1)
+
+	const navigationPrevRef = useRef(null)
+	const navigationNextRef = useRef(null)
+
+	const pagination = {
+		"clickable": false,
+		"el": `.${s.card__sliderPagLine}`,
+		"renderBullet": function(index, className) {
+			return '<div class=\"' + className + '\"></div>';
+		},
+		"bulletClass": s.card__sliderBullet,
+		"bulletActiveClass": s.card__sliderBulletActive,
+	}
 
 	return (
 		<div className={s.card__slider}>
-			<Pagination
-				slide={slide}
-				setSlide={setSlide}
-				withCount={false}
-				position="left"
-			/>
+			<div className={s.card__sliderPag}>
+				<button ref={navigationPrevRef} className={s.card__slider__prev}>
+					<Image
+						src="/static/images/slider/slide-arr.png"
+						alt="brand"
+						width={50}
+						height={50}
+					/>
+				</button>
+					<div className={s.card__sliderPagLine}></div>
+				<button ref={navigationNextRef} className={s.card__slider__next}>
+					<Image
+						src="/static/images/slider/slide-arr.png"
+						alt="brand"
+						width={50}
+						height={50}
+					/>
+				</button>
+
+			</div>
+			<Swiper
+				direction={'vertical'}
+				pagination={pagination}
+				loop={false}
+				className={s.card__sliderWrapper}
+				onInit={(swiper) => {
+					swiper.params.navigation.prevEl = navigationPrevRef.current;
+					swiper.params.navigation.nextEl = navigationNextRef.current;
+					swiper.navigation.init();
+					swiper.navigation.update();
+				}}
+			>
 			{images.map((img, index) => {
 				return (
-					<div key={index} className={s.card__slide}>
-						<Image src={img.src} height={600} width={362} alt="image" />
-					</div>
+					<SwiperSlide  key={index} className={s.card__slide}>
+						<Image src={img.src} alt="Picture of the author"
+									 layout={'responsive'}
+									 width={500}
+									 height={'auto'}
+									 className={s.card__slideImg}/>
+					</SwiperSlide>
 				)
 			})}
+			</Swiper>
 		</div>
 	)
-}
+};
 
 export default CardSlider
