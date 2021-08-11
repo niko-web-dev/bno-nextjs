@@ -11,22 +11,38 @@ import Image from 'next/image'
 
 const GallerySlider: FC<TProducts> = ({ products }) => {
 
-	const navigationPrevRef = useRef(null)
-	const navigationNextRef = useRef(null)
+	const navigationPrevRef1 = useRef(null)
+	const navigationNextRef1 = useRef(null)
 
 	return (
 		<div className={s.__slider}>
 			<div className="container">
 				<h2 className={s.gallery__title}>новинки</h2>
 				<div className={s.gallery__inner}>
+					<button ref={navigationPrevRef1} className={s.gallery__pagination__prev}>
+						<Image
+							src="/static/images/slider/slide-arr.png"
+							alt="brand"
+							width={50}
+							height={50}
+						/>
+					</button>
+					<button ref={navigationNextRef1} className={s.gallery__pagination__next}>
+						<Image
+							src="/static/images/slider/slide-arr.png"
+							alt="brand"
+							width={50}
+							height={50}
+						/>
+					</button>
 					<Swiper
 						navigation={{
-							prevEl: navigationPrevRef.current,
-							nextEl: navigationNextRef.current,
+							prevEl: navigationPrevRef1.current,
+							nextEl: navigationNextRef1.current,
 						}}
 						onInit={(swiper) => {
-							swiper.params.navigation.prevEl = navigationPrevRef.current;
-							swiper.params.navigation.nextEl = navigationNextRef.current;
+							swiper.params.navigation.prevEl = navigationPrevRef1.current;
+							swiper.params.navigation.nextEl = navigationNextRef1.current;
 							swiper.navigation.init();
 							swiper.navigation.update();
 						}}
@@ -55,22 +71,6 @@ const GallerySlider: FC<TProducts> = ({ products }) => {
 						)
 					})}
 				</Swiper>
-					<button ref={navigationPrevRef} className={s.gallery__pagination__prev}>
-						<Image
-							src="/static/images/slider/slide-arr.png"
-							alt="brand"
-							width={50}
-							height={50}
-						/>
-					</button>
-					<button ref={navigationNextRef} className={s.gallery__pagination__next}>
-						<Image
-							src="/static/images/slider/slide-arr.png"
-							alt="brand"
-							width={50}
-							height={50}
-						/>
-					</button>
 			</div>
 				/
 			</div>
