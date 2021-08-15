@@ -32,7 +32,7 @@ const Details = () => {
 								<Image
 									width={24}
 									height={24}
-									src={detailsCard.img}
+									src={detailsCard?.img}
 									alt="shield"
 								/>
 							</div>

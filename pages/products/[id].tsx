@@ -6,12 +6,12 @@ import { SliderMotion } from '../../components/cardSlider/sliderMotion'
 import { FC } from 'react'
 import { TProduct } from '../../types'
 import ProductInfo from '../../components/productInfo'
+import CardSlider from '../../components/cardSlider/cardSlider'
 
 export type TSingleProduct = {
 	product: TProduct
 }
 const ProductPage: FC<TSingleProduct> = ({ product }) => {
-	
 	return (
 		<div>
 			<Header />
@@ -23,8 +23,7 @@ const ProductPage: FC<TSingleProduct> = ({ product }) => {
 							brand={'STONE ISLAND'}
 							types={['Верхняя одежда', 'Куртки']}
 						/>
-						{/*<CardSlider images={product.gallery} />*/}
-						<SliderMotion {...product} />
+						<CardSlider images={product.gallery} />
 					</div>
 
 					<ProductInfo product={product} />

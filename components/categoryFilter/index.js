@@ -1,7 +1,12 @@
 import { useState } from 'react'
 import style from './categoryFilter.module.scss'
 
-const CategoryFilter = ({closeAside, filterActive, products, updateFilter}) => {
+const CategoryFilter = ({
+	closeAside,
+	filterActive,
+	products,
+	updateFilter,
+}) => {
 	const [brandOpen, setBrandOpen] = useState(false)
 	const [typeOpen, setTypeOpen] = useState(false)
 	const [colorOpen, setColorOpen] = useState(false)
@@ -67,7 +72,7 @@ const CategoryFilter = ({closeAside, filterActive, products, updateFilter}) => {
 
 		return { h: h, s: s, l: l }
 	}
-	
+
 	function colorName(hsl) {
 		var l = Math.floor(hsl.l),
 			s = Math.floor(hsl.s),
@@ -142,7 +147,7 @@ const CategoryFilter = ({closeAside, filterActive, products, updateFilter}) => {
 		(v, i, a) =>
 			a.findIndex((t) => t.slug === v.slug && t.name === v.name) === i
 	)
-	
+
 	brands = brands.filter(
 		(v, i, a) =>
 			a.findIndex((t) => t.slug === v.slug && t.name === v.name) === i
@@ -173,10 +178,9 @@ const CategoryFilter = ({closeAside, filterActive, products, updateFilter}) => {
 
 	return (
 		<aside
-			className={[
-				style.filter,
-				filterActive ? style.filterActive : null,
-			].join(' ')}
+			className={[style.filter, filterActive ? style.filterActive : null].join(
+				' '
+			)}
 		>
 			<button className={style.filter__close} onClick={closeMenu}>
 				<div className={style.filter__closeIcon}>

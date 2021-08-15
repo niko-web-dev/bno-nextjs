@@ -29,7 +29,7 @@ const MenuBrands: FC = (brand) => {
 								<Image
 									width={300}
 									height={400}
-									src={item.logo_image.src}
+									src={item?.logo_image?.src}
 									alt={item.description}
 									className={s.wrapper__image}
 								/>

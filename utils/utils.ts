@@ -18,5 +18,3 @@ export function changeSlideCount(
 		if (slide === 1) return slideCount
 	}
 }
-
-
