@@ -12,7 +12,6 @@ export type TSingleProduct = {
 	product: TProduct
 }
 const ProductPage: FC<TSingleProduct> = ({ product }) => {
-	
 	return (
 		<div>
 			<Header />

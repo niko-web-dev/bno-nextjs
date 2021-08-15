@@ -14,6 +14,12 @@
 		"isolatedModules": true,
 		"jsx": "preserve"
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/products/productCard.js", "components/categoryFilter/index.jx"],
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		"pages/products/productCard.js",
+		"components/categoryFilter/index.jx"
+	],
 	"exclude": ["node_modules"]
 }

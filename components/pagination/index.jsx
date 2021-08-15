@@ -6,7 +6,7 @@ import cn from 'classnames'
 
 import { motion } from 'framer-motion'
 import { animation } from '../../animation/animation'
-import {changeSlideCount} from '../../utils/utils'
+import { changeSlideCount } from '../../utils/utils'
 import { ContextAnimation } from '../../context/contextAnimation'
 
 const Pagination = ({

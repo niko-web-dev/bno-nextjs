@@ -34,11 +34,9 @@ const Products: FC<TProducts> = ({ products }) => {
 			for (let brand of filter.brands) {
 				products.map((item) => {
 					if (item.brands[0].slug === brand) {
-						console.log(brand)
 						newItemsBrand.push(item)
 					}
 				})
-				console.log(newItemsBrand)
 			}
 
 			filteredObject.push(newItemsBrand)
@@ -173,7 +171,7 @@ const Products: FC<TProducts> = ({ products }) => {
 										<div className={s.gallery__itemInfo}>
 											<Image
 												className={s.gallery__itemImage}
-												src={product.main_image.src}
+												src={product?.main_image?.src}
 												width={500}
 												height={500}
 												alt={product.title}

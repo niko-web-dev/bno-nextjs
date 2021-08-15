@@ -1,16 +1,14 @@
-import { FC, Fragment, useRef } from 'react'
+import { Fragment, useRef } from 'react'
 import s from './gallery.module.scss'
-import SwiperCore, { Autoplay, Navigation } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Autoplay, Navigation } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
-SwiperCore.use([Autoplay, Navigation]);
+SwiperCore.use([Autoplay, Navigation])
 
-import { TProducts } from '../../types'
 import ProductCard from '../../pages/products/productCard'
 import Image from 'next/image'
 
-const GallerySlider: FC<TProducts> = ({ products }) => {
-
+const GallerySlider = ({ products }) => {
 	const navigationPrevRef1 = useRef(null)
 	const navigationNextRef1 = useRef(null)
 
@@ -19,7 +17,10 @@ const GallerySlider: FC<TProducts> = ({ products }) => {
 			<div className="container">
 				<h2 className={s.gallery__title}>новинки</h2>
 				<div className={s.gallery__inner}>
-					<button ref={navigationPrevRef1} className={s.gallery__pagination__prev}>
+					<button
+						ref={navigationPrevRef1}
+						className={s.gallery__pagination__prev}
+					>
 						<Image
 							src="/static/images/slider/slide-arr.png"
 							alt="brand"
@@ -27,7 +28,10 @@ const GallerySlider: FC<TProducts> = ({ products }) => {
 							height={50}
 						/>
 					</button>
-					<button ref={navigationNextRef1} className={s.gallery__pagination__next}>
+					<button
+						ref={navigationNextRef1}
+						className={s.gallery__pagination__next}
+					>
 						<Image
 							src="/static/images/slider/slide-arr.png"
 							alt="brand"
@@ -41,10 +45,10 @@ const GallerySlider: FC<TProducts> = ({ products }) => {
 							nextEl: navigationNextRef1.current,
 						}}
 						onInit={(swiper) => {
-							swiper.params.navigation.prevEl = navigationPrevRef1.current;
-							swiper.params.navigation.nextEl = navigationNextRef1.current;
-							swiper.navigation.init();
-							swiper.navigation.update();
+							swiper.params.navigation.prevEl = navigationPrevRef1.current
+							swiper.params.navigation.nextEl = navigationNextRef1.current
+							swiper.navigation.init()
+							swiper.navigation.update()
 						}}
 						slidesPerView={1}
 						breakpoints={{
@@ -58,20 +62,20 @@ const GallerySlider: FC<TProducts> = ({ products }) => {
 						loopedSlides={3}
 						autoplay={{
 							delay: 2500,
-							disableOnInteraction: false
+							disableOnInteraction: false,
 						}}
 						loop={true}
 						initialSlide={1}
 					>
-					{products.map((product) => {
-						return (
-							<SwiperSlide  key={product.id}>
-								<ProductCard {...product} />
-							</SwiperSlide>
-						)
-					})}
-				</Swiper>
-			</div>
+						{products.map((product) => {
+							return (
+								<SwiperSlide key={product.id}>
+									<ProductCard product={product} />
+								</SwiperSlide>
+							)
+						})}
+					</Swiper>
+				</div>
 			</div>
 		</div>
 	)

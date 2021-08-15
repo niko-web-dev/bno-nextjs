@@ -36,7 +36,6 @@ const Footer = () => {
 
 		let result = await response.json()
 		setEmail('')
-		console.log(result)
 	}
 
 	return (
