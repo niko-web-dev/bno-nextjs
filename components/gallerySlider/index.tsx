@@ -72,7 +72,6 @@ const GallerySlider: FC<TProducts> = ({ products }) => {
 					})}
 				</Swiper>
 			</div>
-				/
 			</div>
 		</div>
 	)

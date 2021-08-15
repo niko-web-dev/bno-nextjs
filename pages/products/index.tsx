@@ -17,7 +17,6 @@ const Products: FC<TProducts> = ({ products }) => {
 			}
 		}
 	})
-
 	function closeAside(check) {
 		setFilterActive(check)
 	}
