@@ -111,7 +111,7 @@ const ProductInfo: FC<TSingleProduct> = ({ product }) => {
 								return (
 									<li key={index}>
 										<Image
-											src={item.icon}
+											src={item?.icon}
 											alt={item.text}
 											layout={'fixed'}
 											width={35}

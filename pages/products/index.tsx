@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { TProducts } from '../../types'
-import { FC, useEffect, useState } from 'react'
+import { FC, useState } from 'react'
 import s from './products.module.scss'
 import CategoryFilter from '../../components/categoryFilter/index.js'
 import { useRouter } from 'next/router'
@@ -12,8 +12,8 @@ const Products: FC<TProducts> = ({ products }) => {
 	const [filterActive, setFilterActive] = useState(false)
 	const [lastPages, setLastPages] = useState(Math.ceil((products.length + 1) / 9))
 	const [currentPage, setCurrentPage] = useState(1)
-
 	const router = useRouter()
+
 	let defaultParams
 	if (router.query){
 		for (let item in router.query){
@@ -214,8 +214,8 @@ const Products: FC<TProducts> = ({ products }) => {
 											</div>
 											<div
 												className={s.gallery__itemColor}
-												style={{ background: product.color }}
-											></div>
+												style={{ background: product.color }}>
+											</div>
 										</div>
 									</a>
 								</Link>
@@ -254,11 +254,9 @@ const Products: FC<TProducts> = ({ products }) => {
 // http://wp.brandneworder.ru/wp-json/wp/v2/products
 export async function getServerSideProps({ query }) {
 	console.log(query)
-	let res
-	// if (query != undefined){
-	// 	res = await fetch(`http://wp.brandneworder.ru/wp-json/wp/v2/products?search=${query.search}`)
-	// }
-		res = await fetch(`http://wp.brandneworder.ru/wp-json/wp/v2/products/`)
+
+
+	const res = await fetch(`http://wp.brandneworder.ru/wp-json/wp/v2/products/`)
 
 	const products = await res.json()
 

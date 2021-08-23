@@ -36,8 +36,8 @@ const CategoryFilter = ({
 
 	products?.map((product) => {
 		color.push({
-			name: product.color.label ? product.color.label : 'no color',
-			slug: product.color.value ? product.color.label : 'no color',
+			name: product?.color.label ? product.color.label : 'no color',
+			slug: product?.color.value ? product.color.label : 'no color',
 		})
 		brands.push({
 			name: product?.brands[0]?.name ? product?.brands[0]?.name : 'no brand',

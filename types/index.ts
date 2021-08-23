@@ -45,6 +45,8 @@ export type TProduct = {
 	related_posts?: TRelatedProd[]
 	title: string
 	sizes?: string[]
+	care: TCare[]
+	materials: TMaterials[]
 }
 export type TRelatedProd = {
 	id: string
@@ -70,4 +72,15 @@ export type TCartProduct = {
 
 export type TUpdate = {
 	updateStatus: (number) => void
+}
+export type TCare = {
+	acf_fc_layout: string
+	icon: string
+	text: string
+}
+
+export type TMaterials = {
+	acf_fc_layout: string
+	label: string
+	text: string
 }
