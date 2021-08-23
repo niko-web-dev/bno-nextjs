@@ -154,7 +154,7 @@ const Menu: FC = () => {
 									tab === 'categories' ? s.menu__infoActive : null,
 								].join(' ')}
 							>
-								<Link href="/info" shallow={true}>
+								<Link href="/Info" shallow={true}>
 									<a>О нас</a>
 								</Link>
 								<Link href="/delivery" shallow={true}>

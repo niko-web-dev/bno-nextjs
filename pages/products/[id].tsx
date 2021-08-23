@@ -17,7 +17,7 @@ const ProductPage: FC<TSingleProduct> = ({ product }) => {
 			<Header />
 
 			<div className={s.card__wrap}>
-				<div className="container" style={{ display: 'flex' }}>
+				<div className={['container', s.card__wrap_container].join(' ')} style={{ display: 'flex' }}>
 					<div className={s.card__content}>
 						<Index
 							brand={'STONE ISLAND'}

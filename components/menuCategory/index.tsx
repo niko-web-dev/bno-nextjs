@@ -29,6 +29,7 @@ const MenuCategory: FC = (brand) => {
 					let myItem = {
 						id: newItem.id,
 						name: newItem.title,
+						slug: newItem.slug,
 						isActive: false,
 						subcategories: [],
 					}
@@ -37,6 +38,7 @@ const MenuCategory: FC = (brand) => {
 					let myItem = {
 						id: newItem.id,
 						name: newItem.title,
+						slug: newItem.slug,
 						parent_id: newItem.parent_id,
 					}
 					lowCategory.push(myItem)
@@ -93,7 +95,9 @@ const MenuCategory: FC = (brand) => {
 								{item?.subcategories.map((item) => {
 									return (
 										<li key={item.id} className={s.wrapper__item}>
+											<Link href={{ pathname: '/products', query: { type: item.slug } }}>
 											{item.name}
+											</Link>
 										</li>
 									)
 								})}

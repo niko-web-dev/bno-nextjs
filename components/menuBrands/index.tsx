@@ -24,7 +24,7 @@ const MenuBrands: FC = (brand) => {
 			<div className={s.wrapper}>
 				{brands?.map((item) => {
 					return (
-						<Link href={`/${item.slug}`} key={item.id} shallow={true}>
+						<Link href={{ pathname: '/products', query: { brand: item.slug }}} key={item.id} shallow={true}>
 							<a className={s.wrapper__item}>
 								<Image
 									width={300}
@@ -33,7 +33,9 @@ const MenuBrands: FC = (brand) => {
 									alt={item.description}
 									className={s.wrapper__image}
 								/>
-								<h2 className={s.wrapper__title}>{item.title}</h2>
+								<h2 >
+										{item.title}
+								</h2>
 							</a>
 						</Link>
 					)

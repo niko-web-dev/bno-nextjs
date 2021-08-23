@@ -18,11 +18,11 @@ const CardForm: FC<TUpdate> = ({ updateStatus }) => {
 				// @ts-ignore
 				totalCost += +item.price
 				// @ts-ignore
-				cardProducts[item.id] = {
+				cardProducts[+item.id] = {
 					// @ts-ignore
-					price: item.price,
+					price: +item.price,
 					// @ts-ignore
-					size: item.size,
+					size: item.size ? item.size : null,
 					qty: 1,
 				}
 			}
@@ -31,22 +31,28 @@ const CardForm: FC<TUpdate> = ({ updateStatus }) => {
 				phone: phone,
 				email: email,
 				order: JSON.stringify({
-					products: { cardProducts },
+					products: cardProducts,
 					discount: null,
-					total_cost: totalCost,
+					total_cost: +totalCost,
 				}),
 				payment_method: contact,
 				contact_method: contact,
 			}
+			// @ts-ignore
+			async function getFormData(object) {
+				const formData = new FormData();
+				Object.keys(object).forEach(key => formData.set(key, object[key]));
+				return formData;
+			}
+			let form_data = await getFormData(data);
+
+			console.log(form_data.getAll('name'))
 
 			let response = await fetch(
 				'http://wp.brandneworder.ru/wp-json/wp/v2/orders',
 				{
 					method: 'POST',
-					headers: {
-						'Content-Type': 'application/x-www-form-urlencoded',
-					},
-					body: new URLSearchParams(data),
+					body: form_data,
 				}
 			)
 

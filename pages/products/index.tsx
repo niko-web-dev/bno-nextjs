@@ -2,13 +2,29 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { TProducts } from '../../types'
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import s from './products.module.scss'
 import CategoryFilter from '../../components/categoryFilter/index.js'
+import { useRouter } from 'next/router'
 
 const Products: FC<TProducts> = ({ products }) => {
 	const [actualProduct, setActualProduct] = useState(products)
 	const [filterActive, setFilterActive] = useState(false)
+	const [lastPages, setLastPages] = useState(Math.ceil((products.length + 1) / 9))
+	const [currentPage, setCurrentPage] = useState(1)
+
+	const router = useRouter()
+	let defaultParams
+	if (router.query){
+		for (let item in router.query){
+			if (item != 'search'){
+				defaultParams = {
+					type: item,
+					slug: router.query[item]
+				}
+			}
+		}
+	}
 
 	products.map((item) => {
 		if (!item.brands[0]) {
@@ -20,6 +36,7 @@ const Products: FC<TProducts> = ({ products }) => {
 	function closeAside(check) {
 		setFilterActive(check)
 	}
+
 
 	function updateFilter(filter: object) {
 		setActualProduct(products)
@@ -44,8 +61,11 @@ const Products: FC<TProducts> = ({ products }) => {
 		if (filter.type.length > 0) {
 			for (let type of filter.type) {
 				products.map((item) => {
-					if (item.categories[0].slug === type) {
-						newItemsType.push(item)
+
+					for (let cat in item.categories){
+						if (item.categories[cat].slug === type) {
+							newItemsType.push(item)
+						}
 					}
 				})
 			}
@@ -54,7 +74,7 @@ const Products: FC<TProducts> = ({ products }) => {
 		if (filter.color.length > 0) {
 			for (let col of filter.color) {
 				products.map((item) => {
-					if (item.color === col) {
+					if (item.color.label === col) {
 						newItemsColor.push(item)
 					}
 				})
@@ -81,6 +101,12 @@ const Products: FC<TProducts> = ({ products }) => {
 					arr.some((obj) => obj.id == objFromFirstArr.id)
 				)
 			)
+			console.log(newItems.length)
+			if ((newItems.length + 1) > 9){
+				console.log(newItems.length)
+				let pages = Math.ceil((newItems.length + 1) / 9);
+				setLastPages(pages)
+			}
 			setActualProduct(newItems.length > 0 ? newItems : null)
 		}
 	}
@@ -161,7 +187,7 @@ const Products: FC<TProducts> = ({ products }) => {
 				</button>
 				<div className={s.gallery__wrapper}>
 					{actualProduct !== null ? (
-						actualProduct?.map((product, index) => {
+						actualProduct?.slice(0, currentPage === lastPages ? actualProduct.length + 1 : currentPage * 8 + 1)?.map((product, index) => {
 							return (
 								<Link href={`/products/${product.id}`} key={index}>
 									<a className={s.gallery__item}>
@@ -198,12 +224,27 @@ const Products: FC<TProducts> = ({ products }) => {
 					) : (
 						<h2>Товары не найдены</h2>
 					)}
+
+					{
+						currentPage === lastPages ? null : (
+							<div className={s.gallery__buttonPagesWrapper}>
+								<button className={s.gallery__buttonPages} onClick={() => setCurrentPage(currentPage + 1)}>
+									<svg width="8" height="76" viewBox="0 0 8 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M3.64644 75.3536C3.84171 75.5488 4.15829 75.5488 4.35355 75.3536L7.53553 72.1716C7.73079 71.9763 7.73079 71.6597 7.53553 71.4645C7.34027 71.2692 7.02369 71.2692 6.82842 71.4645L4 74.2929L1.17157 71.4645C0.976308 71.2692 0.659725 71.2692 0.464463 71.4645C0.269201 71.6597 0.269201 71.9763 0.464463 72.1716L3.64644 75.3536ZM3.5 -2.18557e-08L3.5 75L4.5 75L4.5 2.18557e-08L3.5 -2.18557e-08Z" fill="black"/>
+									</svg>
+									<span>показать больше</span>
+								</button>
+							</div>
+
+						)
+					}
 				</div>
 				<CategoryFilter
 					products={products}
 					closeAside={closeAside}
 					updateFilter={updateFilter}
 					filterActive={filterActive}
+					defaultParams={defaultParams}
 				/>
 			</div>
 		</div>
@@ -211,8 +252,14 @@ const Products: FC<TProducts> = ({ products }) => {
 }
 
 // http://wp.brandneworder.ru/wp-json/wp/v2/products
-export async function getServerSideProps() {
-	const res = await fetch(`http://wp.brandneworder.ru/wp-json/wp/v2/products/`)
+export async function getServerSideProps({ query }) {
+	console.log(query)
+	let res
+	// if (query != undefined){
+	// 	res = await fetch(`http://wp.brandneworder.ru/wp-json/wp/v2/products?search=${query.search}`)
+	// }
+		res = await fetch(`http://wp.brandneworder.ru/wp-json/wp/v2/products/`)
+
 	const products = await res.json()
 
 	return { props: { products } }
