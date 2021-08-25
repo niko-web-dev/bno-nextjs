@@ -107,22 +107,26 @@ const ProductInfo: FC<TSingleProduct> = ({ product }) => {
 					</h1>
 					<ul className={s.card__save_blockListMat}>
 						{
-							product?.care.map((item, index) => {
-								return (
-									<li key={index}>
+							product?.care?.map((item, index) => {
+								console.log(item.icon)
+								if(item.icon) {
+									return (
+										<li key={index}>
 										<Image
 											src={item?.icon}
 											alt={item.text}
 											layout={'fixed'}
 											width={35}
 											height={35}
-											objectFit="contain"
+											objectFit='contain'
 										/>
 										<p>
 											{item.text}
 										</p>
 									</li>
-								)
+									)
+								}
+
 							})
 						}
 					</ul>
@@ -145,7 +149,7 @@ const ProductInfo: FC<TSingleProduct> = ({ product }) => {
 			</div>
 			<h2 className={s.card__colorTitle}>Доступные цвета</h2>
 			<div className={s.card__colors}>
-				 {colors.length > 0
+				 {colors.length > 1
 					? colors.map(({id, color}) => {
 							return (
 								<Link href={`/products/${id}`} key={id}>
@@ -154,6 +158,7 @@ const ProductInfo: FC<TSingleProduct> = ({ product }) => {
 										style={{
 											background: color
 										}}
+										onClick={() => console.log("clicjk")}
 									></a>
 								</Link>
 							)

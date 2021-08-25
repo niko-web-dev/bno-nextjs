@@ -74,7 +74,7 @@ const Products: FC<TProducts> = ({ products }) => {
 		if (filter.color.length > 0) {
 			for (let col of filter.color) {
 				products.map((item) => {
-					if (item.color.label === col) {
+					if (item?.color?.label === col) {
 						newItemsColor.push(item)
 					}
 				})
@@ -173,13 +173,13 @@ const Products: FC<TProducts> = ({ products }) => {
 										fill="white"
 									/>
 								</mask>
-								<g
-									mask={[filterActive ? 'url(#mask0)' : 'url(#mask1)'].join('')}
-								>
-									<g id="&#240;&#159;&#142;&#168; Color">
-										<rect id="Base" width="24" height="24" fill="#0D1C2E" />
-									</g>
-								</g>
+								{/*<g*/}
+								{/*	mask={[filterActive ? 'url(#mask0)' : 'url(#mask1)'].join('')}*/}
+								{/*>*/}
+								{/*	<g id="&#240;&#159;&#142;&#168; Color">*/}
+								{/*		<rect id="Base" width="24" height="24" fill="#0D1C2E" />*/}
+								{/*	</g>*/}
+								{/*</g>*/}
 							</g>
 						</svg>
 					</div>

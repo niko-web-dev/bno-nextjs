@@ -35,13 +35,14 @@ const CategoryFilter = ({
 	}
 
 	products?.map((product) => {
+
 		color.push({
-			name: product?.color.label ? product.color.label : 'no color',
-			slug: product?.color.value ? product.color.label : 'no color',
+			name: product?.colors_variant ? product?.colors_variant : 'Все цвета',
+			slug: product?.colors_variant? product?.colors_variant : 'Все цвета',
 		})
 		brands.push({
-			name: product?.brands[0]?.name ? product?.brands[0]?.name : 'no brand',
-			slug: product?.brands[0]?.slug ? product?.brands[0]?.slug : 'no-brand',
+			name: product?.brands[0]?.name ? product?.brands[0]?.name : 'Все бренды',
+			slug: product?.brands[0]?.slug ? product?.brands[0]?.slug : 'Все бренды',
 		})
 		product.categories.map((cat) => {
 			type.push({
@@ -56,7 +57,7 @@ const CategoryFilter = ({
 			})
 		})
 	})
-
+	console.log(color)
 	size = size.filter(
 		(v, i, a) =>
 			a.findIndex((t) => t.slug === v.slug && t.name === v.name) === i

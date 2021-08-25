@@ -185,8 +185,10 @@
 			width: 45px;
 			height: 5px;
 			position: relative;
+			cursor: pointer;
+			z-index: 1000;
 			&Active {
-				pointer-events: none;
+				//pointer-events: none;
 				&:after {
 					content: '';
 					position: absolute;

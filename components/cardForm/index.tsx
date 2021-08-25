@@ -41,9 +41,14 @@ const CardForm: FC<TUpdate> = ({ updateStatus }) => {
 			// @ts-ignore
 			async function getFormData(object) {
 				const formData = new FormData();
-				Object.keys(object).forEach(key => formData.set(key, object[key]));
+				Object.keys(object).forEach(key => {
+					const value = key === "order" ? JSON.stringify(object[key]) : object[key]
+					return formData.set(key, value)
+				});
 				return formData;
 			}
+
+
 			let form_data = await getFormData(data);
 
 			console.log(form_data.getAll('name'))
@@ -82,6 +87,7 @@ const CardForm: FC<TUpdate> = ({ updateStatus }) => {
 		let result = await response.json()
 		updateStatus(2)
 	}
+
 	const changeName = function (event) {
 		setName(event.target.value)
 	}
