@@ -3,10 +3,12 @@ import { TSingleProduct } from '../../pages/products/[id]'
 import s from '../../pages/products/product-page.module.scss'
 import Link from 'next/link'
 import Image from 'next/image'
+import Popup from '../popup/index'
 import { ContextCard } from '../../context/contextCard'
 
 const ProductInfo: FC<TSingleProduct> = ({ product }) => {
 	const [colors, setColors] = useState([])
+	const [active, setPopUp] = useState(false);
 	const [size, setSize] = useState('')
 	const [matherialPopup, setMatherialPopup] = useState(false)
 	const [cardLs, setCardLs] = useContext(ContextCard)
@@ -66,8 +68,20 @@ const ProductInfo: FC<TSingleProduct> = ({ product }) => {
 			return carts?.some(prod => prod.id === id)
 		}
 	}
+
+
+	const popUpNow = () => {
+		setPopUp(true);
+	}
+	const hidePopUp = () => {
+		setTimeout(() => {
+			setPopUp(false)
+		}, 3000)
+	}
+
 	return (
 		<form className={s.card__info}>
+			<Popup active={active} hidePopUp={hidePopUp} />
 			<div className={[s.card__save, matherialPopup ? s.card__saveActive : null].join(' ')}>
 				<button
 					className={s.card__save_close}
@@ -201,7 +215,11 @@ const ProductInfo: FC<TSingleProduct> = ({ product }) => {
 
 				<Link href={'/Card'}><a className={s.card__button} style={{display: 'block'}} >КОРЗИНА</a></Link>
 				:
-				<button className={s.card__button} onClick={e => addToCard(e)}>
+				<button className={s.card__button} onClick={e => {
+						addToCard(e);
+						popUpNow();
+				}
+				}>
 					КУПИТЬ
 				</button>
 			}
