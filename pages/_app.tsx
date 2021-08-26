@@ -9,6 +9,7 @@ import '../public/styles/globals.css'
 
 import Header from '../components/header'
 import Footer from '../components/footer'
+import { CardProvider } from '../context/contextCard'
 
 function MyApp({ Component, pageProps, router }: AppProps) {
 	return (
@@ -18,12 +19,14 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 			animate="pageAnimate"
 			variants={animation.page}
 		>
-			<MenuProvider>
-				<Menu />
-				<Header />
-				<Component {...pageProps} />
-				<Footer />
-			</MenuProvider>
+			<CardProvider>
+				<MenuProvider>
+					<Menu />
+					<Header />
+					<Component {...pageProps} />
+					<Footer />
+				</MenuProvider>
+			</CardProvider>
 		</motion.div>
 	)
 }

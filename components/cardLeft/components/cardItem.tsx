@@ -1,12 +1,12 @@
-import { FC } from 'react'
+import { FC, useContext } from 'react'
 import style from '../cardLeft.module.scss'
 import Image from 'next/image'
-import { TCartProduct, TProduct } from '../../../types'
+import { TCartProduct } from '../../../types'
+import { ContextCard } from '../../../context/contextCard'
 
 const CardItem: FC<TCartProduct> = (product) => {
-	const deleteItem = () => {
-		alert('delete: ' + product.id)
-	}
+	const [cardLs, setCardLs] = useContext(ContextCard)
+	const deleteItem = () => alert('delete: ' + product.id)
 
 	return (
 		<div className={style.cardProduct__item}>
@@ -31,6 +31,7 @@ const CardItem: FC<TCartProduct> = (product) => {
 					className={style.cardProduct__delete}
 					onClick={() => {
 						product.deleteItem(product.index)
+						setCardLs(localStorage.getItem('product'))
 					}}
 				>
 					<svg

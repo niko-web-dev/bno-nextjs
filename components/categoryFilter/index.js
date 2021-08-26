@@ -57,7 +57,6 @@ const CategoryFilter = ({
 			})
 		})
 	})
-	console.log(color)
 	size = size.filter(
 		(v, i, a) =>
 			a.findIndex((t) => t.slug === v.slug && t.name === v.name) === i

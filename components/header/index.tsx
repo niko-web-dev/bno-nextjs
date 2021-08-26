@@ -4,7 +4,7 @@ import MenuBtn from '../menuBtn'
 import Logo from '../logo/logo'
 import Icons from '../icons'
 import SearchIcon from '../icons/searchIcon'
-import CartIcon from '../icons/cartIcon'
+import CardIcon from '../icons/CardIcon'
 
 const Header = () => {
 	return (
@@ -15,7 +15,7 @@ const Header = () => {
 					<Logo color="black" />
 					<Icons dir="row">
 						<SearchIcon />
-						<CartIcon />
+						<CardIcon />
 					</Icons>
 				</div>
 			</div>

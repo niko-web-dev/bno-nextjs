@@ -1,7 +1,7 @@
 import { FC, Fragment, useEffect, useState } from 'react'
 import CardItem from './components/cardItem'
 import style from './cardLeft.module.scss'
-import { TCartProduct, TProduct, TUpdate } from '../../types'
+import { TCartProduct, TUpdate } from '../../types'
 
 const CardLeft: FC<TUpdate> = ({ updateStatus }) => {
 	const [products, setProducts] = useState<TCartProduct[]>([])
@@ -28,7 +28,7 @@ const CardLeft: FC<TUpdate> = ({ updateStatus }) => {
 					products.map((product, index) => {
 						product['index'] = index
 						return (
-							<Fragment key={product.id}>
+							<Fragment key={product.id + product.code}>
 								<CardItem {...product} deleteItem={deleteItem} />
 							</Fragment>
 						)

@@ -1,13 +1,15 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useContext, useEffect, useState } from 'react'
 import { TSingleProduct } from '../../pages/products/[id]'
 import s from '../../pages/products/product-page.module.scss'
 import Link from 'next/link'
 import Image from 'next/image'
+import { ContextCard } from '../../context/contextCard'
 
 const ProductInfo: FC<TSingleProduct> = ({ product }) => {
 	const [colors, setColors] = useState([])
 	const [size, setSize] = useState('')
 	const [matherialPopup, setMatherialPopup] = useState(false)
+	const [cardLs, setCardLs] = useContext(ContextCard)
 
 	useEffect(() => {
 		let allColors = []
@@ -49,6 +51,7 @@ const ProductInfo: FC<TSingleProduct> = ({ product }) => {
 			let products = JSON.parse(localStorage.getItem('product'))
 			products.push(myProduct)
 			localStorage.setItem('product', JSON.stringify(products))
+			setCardLs(localStorage.setItem('product', JSON.stringify(products)))
 		} else {
 			let products = []
 			products.push(myProduct)
@@ -108,7 +111,6 @@ const ProductInfo: FC<TSingleProduct> = ({ product }) => {
 					<ul className={s.card__save_blockListMat}>
 						{
 							product?.care?.map((item, index) => {
-								console.log(item.icon)
 								if(item.icon) {
 									return (
 										<li key={index}>
