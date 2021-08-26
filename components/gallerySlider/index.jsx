@@ -67,7 +67,7 @@ const GallerySlider = ({ products }) => {
 						loop={true}
 						initialSlide={1}
 					>
-						{products.map((product) => {
+						{products?.map((product) => {
 							return (
 								<SwiperSlide key={product.id}>
 									<ProductCard product={product} />

@@ -7,7 +7,7 @@ const CardIcon: FC = () => {
 	const [cardLs, setCardLs] = useContext(ContextCard)
 
 	return (
-		<div className="header__card">
+		<div className="header__card" style={{marginLeft: "35px"}}>
 			<Link href="/Card" shallow={true}>
 				<a className={s.header__card}>
 					<svg

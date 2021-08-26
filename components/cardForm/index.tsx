@@ -35,7 +35,7 @@ const CardForm: FC<TUpdate> = ({ updateStatus }) => {
 					discount: null,
 					total_cost: +totalCost,
 				}),
-				payment_method: contact,
+				payment_method: '',
 				contact_method: contact,
 			}
 			// @ts-ignore

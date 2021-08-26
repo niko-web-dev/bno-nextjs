@@ -8,18 +8,19 @@ import CardIcon from '../icons/CardIcon'
 
 const Header = () => {
 	return (
-		<div className={s.header}>
+		<header className={s.header}>
 			<div className="container">
-				<div className={s.header__menu}>
 					<MenuBtn />
 					<Logo color="black" />
-					<Icons dir="row">
-						<SearchIcon />
-						<CardIcon />
+					<Icons dir="row" >
+						<div style={{marginRight: "40px"}}>
+							<SearchIcon />
+							<CardIcon />
+						</div>
+
 					</Icons>
-				</div>
 			</div>
-		</div>
+		</header>
 	)
 }
 

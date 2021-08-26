@@ -10,6 +10,14 @@ const SearchIcon: FC = () => {
 		setSearchInput(event.target.value)
 	}
 
+	const searchSubmit =  (e) => {
+		event.preventDefault()
+		fetch(`http://wp.brandneworder.ru/wp-json/wp/v2/products?search=${searchInput}`)
+			.then(function (response) {
+			console.log('response', response)
+		})
+	}
+
 	const inputDisplay= viewInput === false ? '0' :  "1"
 
 	return (
@@ -30,7 +38,9 @@ const SearchIcon: FC = () => {
 				value={searchInput}
 				required={true}
 				type="text"
+
 			/>
+			<button type='submit' onClick={e => searchSubmit(e)}> go </button>
 			<style jsx>
 				{`
 					.search__icon {

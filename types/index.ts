@@ -47,6 +47,7 @@ export type TProduct = {
 	sizes?: string[]
 	care: TCare[]
 	materials: TMaterials[]
+	name: string
 }
 export type TRelatedProd = {
 	id: string

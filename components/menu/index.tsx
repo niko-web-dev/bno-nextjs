@@ -48,8 +48,8 @@ const Menu: FC = () => {
 			>
 				<div className={'container'}>
 					<div className={s.menu__wrapper}>
-						<div className={s.header}>
-							<button className={s.header__close} onClick={closeMenu}>
+						<div className={s.header__menu}>
+							<button className={s.header__menu__close} onClick={closeMenu}>
 								<svg
 									width="41"
 									height="16"
@@ -63,13 +63,13 @@ const Menu: FC = () => {
 									/>
 								</svg>
 							</button>
-							<div className={s.header__tabs}>
+							<div className={s.header__menu__tabs}>
 								<h2>ОДЕЖДА</h2>
-								<div className={s.header__tabsWrapper}>
+								<div className={s.header__menu__tabsWrapper}>
 									<button
 										className={[
-											s.header__tab,
-											tab === 'brands' ? s.header__tabActive : null,
+											s.header__menu__tab,
+											tab === 'brands' ? s.header__menu__tabActive : null,
 										].join(' ')}
 										onClick={() => {
 											setTabs('brands')
@@ -79,8 +79,8 @@ const Menu: FC = () => {
 									</button>
 									<button
 										className={[
-											s.header__tab,
-											tab === 'categories' ? s.header__tabActive : null,
+											s.header__menu__tab,
+											tab === 'categories' ? s.header__menu__tabActive : null,
 										].join(' ')}
 										onClick={() => {
 											setTabs('categories')
@@ -90,8 +90,8 @@ const Menu: FC = () => {
 									</button>
 								</div>
 							</div>
-							<div className={s.header__input}>
-								<label className={s.header__seacrh}>
+							<div className={s.header__menu__input}>
+								<label className={s.header__menu__seacrh}>
 									<svg
 										width="22"
 										height="22"
