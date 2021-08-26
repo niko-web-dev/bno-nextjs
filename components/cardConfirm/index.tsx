@@ -39,11 +39,11 @@ const CardConfirm: FC<{}> = ({}) => {
 									fill="white"
 								/>
 							</mask>
-							<g mask="url(#mask0)">
-								<g id="&#240;&#159;&#142;&#168; Color">
-									<rect id="Base" width="94" height="94" fill="#231F20" />
-								</g>
-							</g>
+							{/*<g mask="url(#mask0)">*/}
+							{/*	<g id="&#240;&#159;&#142;&#168; Color">*/}
+							{/*		<rect id="Base" width="94" height="94" fill="#231F20" />*/}
+							{/*	</g>*/}
+							{/*</g>*/}
 						</g>
 					</svg>
 				</div>

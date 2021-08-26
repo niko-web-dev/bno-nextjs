@@ -25,7 +25,7 @@ const CardIcon: FC = () => {
 						/>
 					</svg>
 					<span className="card__count">
-						{cardLs?.length > 0 ? cardLs?.length : 0}
+						{cardLs?.length}
 					</span>
 				</a>
 			</Link>
