@@ -8,7 +8,7 @@ import CardIcon from '../icons/CardIcon'
 
 const Header = () => {
 	return (
-		<header className={s.header}>
+		<div className={s.header}>
 			<div className="container">
 				<div className={s.header__menu}>
 					<MenuBtn />
@@ -19,7 +19,7 @@ const Header = () => {
 					</Icons>
 				</div>
 			</div>
-		</header>
+		</div>
 	)
 }
 

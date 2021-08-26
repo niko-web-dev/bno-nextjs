@@ -50,6 +50,7 @@
 		letter-spacing: 0.15em;
 		background: transparent;
 		transition: all 0.5s ease;
+		outline: none;
 		&:focus,
 		&:hover {
 			border: 1px solid #000000;
@@ -108,7 +109,7 @@
 		background-color: transparent;
 		cursor: pointer;
 		padding: 15px;
-		width: 100%;
+		//width: 100%;
 		text-align: center;
 		color: #000000;
 		font-family: Eurostile;
@@ -124,4 +125,12 @@
 			color: #ffffff;
 		}
 	}
+}
+
+.cardForm__input_search {
+	position: absolute;
+	top: 66px;
+	height: 50px;
+	right: 5%;
+	width: 250px;
 }

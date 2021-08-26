@@ -8,7 +8,6 @@ import { AnimationProvider } from '../../context/contextAnimation'
 const StartWindow: FC = () => {
 	return (
 		<AnimationProvider>
-			<Header />
 			<MainSlider />
 		</AnimationProvider>
 	)

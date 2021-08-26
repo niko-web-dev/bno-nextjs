@@ -48,7 +48,7 @@ const Menu: FC = () => {
 			>
 				<div className={'container'}>
 					<div className={s.menu__wrapper}>
-						<header className={s.header}>
+						<div className={s.header}>
 							<button className={s.header__close} onClick={closeMenu}>
 								<svg
 									width="41"
@@ -129,7 +129,7 @@ const Menu: FC = () => {
 								</label>
 								<CartIcon/>
 							</div>
-						</header>
+						</div>
 						<nav className={s.menu}>
 							{content()}
 							<div

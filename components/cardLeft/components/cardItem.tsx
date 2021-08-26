@@ -7,7 +7,7 @@ import { ContextCard } from '../../../context/contextCard'
 const CardItem: FC<TCartProduct> = (product) => {
 	const [cardLs, setCardLs] = useContext(ContextCard)
 	const deleteItem = () => alert('delete: ' + product.id)
-console.log(product)
+
 	return (
 		<div className={style.cardProduct__item}>
 			<Image
