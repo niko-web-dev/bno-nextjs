@@ -45,6 +45,7 @@ const CardSlider = ({ images }) => {
 				direction={'vertical'}
 				pagination={pagination}
 				loop={false}
+				slidesPerView={1}
 				className={s.card__sliderWrapper}
 				onInit={(swiper) => {
 					swiper.params.navigation.prevEl = navigationPrevRef.current
@@ -59,9 +60,7 @@ const CardSlider = ({ images }) => {
 							<Image
 								src={img?.src}
 								alt="Picture of the author"
-								layout={'responsive'}
-								width={500}
-								height={300}
+								layout="fill"
 								className={s.card__slideImg}
 							/>
 						</SwiperSlide>

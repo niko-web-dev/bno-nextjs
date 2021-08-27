@@ -12,7 +12,7 @@
 		height: 50px;
 		background: none;
 		border: none;
-		margin-bottom: 50px;
+		margin-bottom: 20px;
 		cursor: pointer;
 		z-index: 5;
 	}
@@ -21,7 +21,7 @@
 		height: 50px;
 		background: none;
 		border: none;
-		margin-top: 50px;
+		margin-top: 20px;
 		cursor: pointer;
 		z-index: 5;
 		transform: rotate(180deg);
@@ -40,7 +40,7 @@
 	}
 	&Bullet {
 		width: 2px;
-		height: 15vw;
+		height: 9vw;
 		background: #dadada;
 		display: block;
 		&Active {
@@ -64,7 +64,14 @@
 		margin: auto 0;
 	}
 	&Img {
-		width: 100%;
-		height: auto;
+		object-fit: contain;
+		width: 100% !important;
+		max-height: 750px !important;
+		position: relative !important;
+		height: unset !important;
+	}
+
+	& > div {
+		position: unset !important;
 	}
 }

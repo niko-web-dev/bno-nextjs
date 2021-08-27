@@ -31,6 +31,7 @@
 		flex-direction: column;
 		@media (max-width: 850px) {
 			width: 100%;
+			padding-top: 40px;
 		}
 	}
 	&__save{
