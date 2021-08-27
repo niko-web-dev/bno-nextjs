@@ -76,7 +76,7 @@ const ProductInfo: FC<TSingleProduct> = ({ product }) => {
 	const hidePopUp = () => {
 		setTimeout(() => {
 			setPopUp(false)
-		}, 3000)
+		}, 300000)
 	}
 
 	return (
