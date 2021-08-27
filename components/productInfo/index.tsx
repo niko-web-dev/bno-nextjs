@@ -12,6 +12,7 @@ const ProductInfo: FC<TSingleProduct> = ({ product }) => {
 	const [size, setSize] = useState('')
 	const [matherialPopup, setMatherialPopup] = useState(false)
 	const [cardLs, setCardLs] = useContext(ContextCard)
+	const [productsInCard, setProductsInCard] = useState(null)
 
 
 	useEffect(() => {
@@ -76,12 +77,12 @@ const ProductInfo: FC<TSingleProduct> = ({ product }) => {
 	const hidePopUp = () => {
 		setTimeout(() => {
 			setPopUp(false)
-		}, 300000)
+		}, 3000)
 	}
 
 	return (
 		<form className={s.card__info}>
-			<Popup active={active} hidePopUp={hidePopUp} />
+			<Popup active={active} hidePopUp={hidePopUp} productsInCard={productsInCard} />
 			<div className={[s.card__save, matherialPopup ? s.card__saveActive : null].join(' ')}>
 				<button
 					className={s.card__save_close}
